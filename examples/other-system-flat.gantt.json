@@ -1,0 +1,242 @@
+{
+  "$schema": "../schema/gantt-exchange.schema.json",
+  "format": "gantt-exchange",
+  "schemaVersion": "1.0",
+  "meta": {
+    "source": "tracker:helpdesk",
+    "sourceName": "Сервис-деск, очередь «Сайт»",
+    "title": "Задачи по сайту",
+    "exportedAt": "2026-09-25T08:00:00+03:00",
+    "kind": "full",
+    "cursor": "4815",
+    "defaultEditable": [
+      "planStart",
+      "planEnd",
+      "status"
+    ]
+  },
+  "dictionaries": {
+    "levels": [
+      {
+        "id": "issue",
+        "name": "Задача",
+        "order": 1
+      }
+    ],
+    "statuses": [
+      {
+        "id": "open",
+        "name": "Открыта",
+        "kind": "notStarted"
+      },
+      {
+        "id": "progress",
+        "name": "В работе",
+        "kind": "inProgress"
+      },
+      {
+        "id": "review",
+        "name": "На проверке",
+        "kind": "release"
+      },
+      {
+        "id": "waiting",
+        "name": "Ждёт ответа",
+        "kind": "onHold"
+      },
+      {
+        "id": "closed",
+        "name": "Закрыта",
+        "kind": "done"
+      },
+      {
+        "id": "rejected",
+        "name": "Отклонена",
+        "kind": "cancelled"
+      }
+    ],
+    "priorities": [
+      {
+        "id": "low",
+        "name": "Низкий",
+        "order": 1,
+        "color": "#8A9099"
+      },
+      {
+        "id": "normal",
+        "name": "Обычный",
+        "order": 2,
+        "color": "#2F5FD0"
+      },
+      {
+        "id": "high",
+        "name": "Срочный",
+        "order": 3,
+        "color": "#D1560B"
+      },
+      {
+        "id": "blocker",
+        "name": "Блокер",
+        "order": 4,
+        "color": "#B3261E"
+      }
+    ],
+    "people": [
+      {
+        "id": "u1",
+        "name": "Дизайнер"
+      },
+      {
+        "id": "u2",
+        "name": "Разработчик"
+      },
+      {
+        "id": "u3",
+        "name": "Тестировщик"
+      }
+    ],
+    "customFields": [
+      {
+        "id": "storyPoints",
+        "name": "Оценка, ч",
+        "type": "number"
+      },
+      {
+        "id": "component",
+        "name": "Компонент",
+        "type": "enum",
+        "values": [
+          {
+            "id": "front",
+            "name": "Витрина"
+          },
+          {
+            "id": "cart",
+            "name": "Корзина"
+          },
+          {
+            "id": "api",
+            "name": "API"
+          }
+        ]
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "HD-101",
+      "level": "issue",
+      "number": "HD-101",
+      "name": "Новый дизайн карточки товара",
+      "executors": [
+        "u1"
+      ],
+      "planStart": "2026-09-14",
+      "planEnd": "2026-09-30",
+      "factStart": "2026-09-15",
+      "status": "progress",
+      "priority": "normal",
+      "percent": 40,
+      "version": "12",
+      "url": "https://helpdesk.example/issue/HD-101",
+      "custom": {
+        "storyPoints": 24,
+        "component": "front"
+      }
+    },
+    {
+      "id": "HD-102",
+      "level": "issue",
+      "number": "HD-102",
+      "name": "Оплата частями в корзине",
+      "executors": [
+        "u2"
+      ],
+      "planStart": "2026-10-01",
+      "planEnd": "2026-10-20",
+      "status": "open",
+      "priority": "high",
+      "version": "3",
+      "predecessors": [
+        {
+          "id": "HD-101",
+          "type": "FS"
+        }
+      ],
+      "custom": {
+        "storyPoints": 40,
+        "component": "cart"
+      }
+    },
+    {
+      "id": "HD-103",
+      "level": "issue",
+      "number": "HD-103",
+      "name": "Ошибка 500 при поиске по артикулу",
+      "executors": [
+        "u2",
+        "u3"
+      ],
+      "planStart": "2026-09-22",
+      "planEnd": "2026-09-23",
+      "factStart": "2026-09-22",
+      "status": "waiting",
+      "priority": "blocker",
+      "version": "9",
+      "custom": {
+        "component": "api"
+      }
+    },
+    {
+      "id": "HD-104",
+      "level": "issue",
+      "number": "HD-104",
+      "name": "Выгрузка остатков для маркетплейса",
+      "executors": [
+        "u3"
+      ],
+      "planStart": "2026-09-01",
+      "planEnd": "2026-09-12",
+      "factStart": "2026-09-01",
+      "factEnd": "2026-09-10",
+      "status": "closed",
+      "priority": "normal",
+      "percent": 100,
+      "version": "21",
+      "editable": []
+    },
+    {
+      "id": "HD-105",
+      "level": "issue",
+      "number": "HD-105",
+      "name": "Запуск новой версии сайта",
+      "planStart": "2026-10-21",
+      "planEnd": "2026-10-21",
+      "milestone": true,
+      "status": "open",
+      "priority": "high",
+      "predecessors": [
+        {
+          "id": "HD-102",
+          "type": "FS",
+          "lagDays": 1
+        }
+      ],
+      "version": "1"
+    },
+    {
+      "id": "HD-106",
+      "level": "issue",
+      "number": "HD-106",
+      "name": "Старый баннер в шапке",
+      "executors": [
+        "u1"
+      ],
+      "planStart": "2026-09-05",
+      "planEnd": "2026-09-06",
+      "status": "rejected",
+      "priority": "low",
+      "version": "4"
+    }
+  ]
+}

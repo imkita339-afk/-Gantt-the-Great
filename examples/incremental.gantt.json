@@ -1,0 +1,76 @@
+{
+  "$schema": "../schema/gantt-exchange.schema.json",
+  "format": "gantt-exchange",
+  "schemaVersion": "1.0",
+  "meta": {
+    "source": "demo:gantt",
+    "sourceName": "Демо-данные",
+    "exportedAt": "2026-09-26T09:00:00+07:00",
+    "kind": "incremental",
+    "exportedBy": null,
+    "changedSince": "2026-09-25T09:00:00+07:00",
+    "cursor": "2026-09-26T09:00:00+07:00"
+  },
+  "nodes": [
+    {
+      "id": "aef705b7-a0fd-5d12-bb33-2b38b014e2ec",
+      "parentId": "aff93fdb-d1df-5b64-828a-70c6fffdffba",
+      "level": "task",
+      "order": 3,
+      "number": "5009",
+      "name": "Бухгалтерия. Разработка отчётов по продажам",
+      "executors": [
+        "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+      ],
+      "planStart": "2026-07-20",
+      "planEnd": null,
+      "factStart": "2026-07-20",
+      "factEnd": "2026-09-26",
+      "status": "done",
+      "custom": {
+        "taskKind": "incident"
+      }
+    },
+    {
+      "id": "2710da69-3119-531c-934b-4fba08e7cf7a",
+      "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+      "level": "task",
+      "order": 12,
+      "number": "5068",
+      "name": "ERP. Обновление закрытия месяца",
+      "executors": [
+        "82ada29d-0a92-5d2e-9c2b-38e067158098"
+      ],
+      "planStart": "2026-03-25",
+      "planEnd": "2026-04-20",
+      "factStart": "2026-03-25",
+      "factEnd": null,
+      "status": "inProgress",
+      "custom": {
+        "taskKind": "changeRequest"
+      }
+    },
+    {
+      "id": "addc67a9-44b3-515b-a29f-389cdc885f58",
+      "parentId": "aff93fdb-d1df-5b64-828a-70c6fffdffba",
+      "level": "task",
+      "order": 3.5,
+      "number": "6115",
+      "name": "ERP. Доработка печатных форм счёта",
+      "executors": [
+        "02a8daea-87a6-5889-a53e-a76da12369b2"
+      ],
+      "planStart": "2026-09-25",
+      "planEnd": null,
+      "factStart": "2026-09-25",
+      "factEnd": null,
+      "status": "inProgress",
+      "custom": {
+        "taskKind": "incident"
+      }
+    }
+  ],
+  "deleted": [
+    "480bafee-8de1-513d-b655-4ea6d1ea2bda"
+  ]
+}

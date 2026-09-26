@@ -1,0 +1,23 @@
+# Реальные данные (Excel-выгрузки, выгрузка конфигурации 1С, ФИО) — только локально
+local/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Сборка
+build/
+dist/
+
+# Прочее
+~$*
+*.log
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

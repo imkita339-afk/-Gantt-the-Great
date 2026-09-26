@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema/gantt-exchange.schema.json",
+  "format": "gantt-exchange",
+  "schemaVersion": "1.0",
+  "meta": {
+    "source": "demo:gantt",
+    "sourceName": "Демо-данные",
+    "exportedAt": "2026-09-26T11:20:03+07:00",
+    "kind": "results",
+    "exportedBy": "Служебный пользователь"
+  },
+  "results": [
+    {
+      "changeId": "d341826a-ba76-5cc6-aa48-2ee57a29eb20",
+      "result": "conflict",
+      "currentValue": "2026-04-20",
+      "currentVersion": "v2",
+      "reason": "Срок изменили в источнике после вашей загрузки"
+    },
+    {
+      "changeId": "5f0101fd-12a6-5297-a3d9-f18ce5251f30",
+      "result": "applied",
+      "currentValue": null,
+      "currentVersion": "v5",
+      "reason": null
+    },
+    {
+      "changeId": "bb7684d9-884f-5ab9-a09e-848f2723d3f0",
+      "result": "rejected",
+      "reason": "Источник не разрешает менять поле «Факт окончания»"
+    }
+  ]
+}

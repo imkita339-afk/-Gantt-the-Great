@@ -1,0 +1,495 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gantt-exchange:schema:1.0",
+  "title": "Файл обмена Ганта (gantt-exchange), схема 1.0",
+  "description": "Единый документ для обмена данными диаграммы Ганта: файл на диске и тело HTTP-запросов/ответов. Описание — docs/format.md.",
+  "type": "object",
+  "required": ["format", "schemaVersion", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "description": "Необязательная ссылка на схему — для редакторов с подсказками.",
+      "type": "string"
+    },
+    "format": {
+      "description": "Признак формата. Всегда «gantt-exchange».",
+      "const": "gantt-exchange"
+    },
+    "schemaVersion": {
+      "description": "Версия схемы «основная.дополнительная». Программа понимает все 1.x; в 1.x только добавляются необязательные поля.",
+      "type": "string",
+      "pattern": "^1\\.[0-9]+$"
+    },
+    "meta": { "$ref": "#/$defs/meta" },
+    "dictionaries": { "$ref": "#/$defs/dictionaries" },
+    "nodes": {
+      "description": "Узлы дерева плоским списком; связь — через parentId.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "deleted": {
+      "description": "Идентификаторы узлов, удалённых в источнике (только в kind = incremental).",
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "changes": {
+      "description": "Изменения, сделанные в программе: очередь на отправку (kind = changes) или несохранённые правки в снимке (kind = full).",
+      "type": "array",
+      "items": { "$ref": "#/$defs/change" }
+    },
+    "results": {
+      "description": "Итог применения каждого изменения в источнике (kind = results).",
+      "type": "array",
+      "items": { "$ref": "#/$defs/result" }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "$ref": "#/$defs/kindIs/full" },
+      "then": {
+        "required": ["dictionaries", "nodes"],
+        "properties": {
+          "dictionaries": { "required": ["levels"] },
+          "deleted": false,
+          "results": false
+        }
+      }
+    },
+    {
+      "if": { "$ref": "#/$defs/kindIs/incremental" },
+      "then": {
+        "required": ["nodes"],
+        "properties": {
+          "meta": { "required": ["changedSince", "cursor"] },
+          "changes": false,
+          "results": false
+        }
+      }
+    },
+    {
+      "if": { "$ref": "#/$defs/kindIs/changes" },
+      "then": {
+        "required": ["changes"],
+        "properties": {
+          "dictionaries": false,
+          "nodes": false,
+          "deleted": false,
+          "results": false
+        }
+      }
+    },
+    {
+      "if": { "$ref": "#/$defs/kindIs/results" },
+      "then": {
+        "required": ["results"],
+        "properties": {
+          "dictionaries": false,
+          "nodes": false,
+          "deleted": false,
+          "changes": false
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "kindIs": {
+      "full": {
+        "required": ["meta"],
+        "properties": { "meta": { "required": ["kind"], "properties": { "kind": { "const": "full" } } } }
+      },
+      "incremental": {
+        "required": ["meta"],
+        "properties": { "meta": { "required": ["kind"], "properties": { "kind": { "const": "incremental" } } } }
+      },
+      "changes": {
+        "required": ["meta"],
+        "properties": { "meta": { "required": ["kind"], "properties": { "kind": { "const": "changes" } } } }
+      },
+      "results": {
+        "required": ["meta"],
+        "properties": { "meta": { "required": ["kind"], "properties": { "kind": { "const": "results" } } } }
+      }
+    },
+
+    "id": {
+      "description": "Идентификатор: любая непустая строка (GUID, код, номер). Уникален в пределах своего списка.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "idOrNull": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "date": {
+      "description": "Дата ГГГГ-ММ-ДД или null.",
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "dateTime": {
+      "description": "Дата и время ISO 8601 со смещением: 2026-09-24T10:04:00+07:00.",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2}(\\.[0-9]+)?)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "text": {
+      "type": ["string", "null"]
+    },
+    "customFieldId": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$"
+    },
+    "fieldName": {
+      "description": "Поле узла, которое можно менять. Пользовательское поле — custom.<id>.",
+      "type": "string",
+      "pattern": "^(name|description|executors|initiator|planStart|planEnd|factStart|factEnd|percent|status|priority|urgency|impact|category|color|milestone|custom\\.[A-Za-z][A-Za-z0-9_]{0,63})$"
+    },
+    "editableList": {
+      "description": "Поля, которые источник разрешает менять. Пустой список — узел только для чтения.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/fieldName" },
+      "uniqueItems": true
+    },
+    "value": {
+      "description": "Значение поля: строка, число, логическое, null или список идентификаторов (executors).",
+      "type": ["string", "number", "boolean", "null", "array"],
+      "items": { "$ref": "#/$defs/id" }
+    },
+
+    "meta": {
+      "type": "object",
+      "required": ["source", "exportedAt", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "description": "Тип системы-источника, например «1C:УправлениеITОтделом», «excel:ProjectsToGanttExport», «jira».",
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceName": {
+          "description": "Конкретный экземпляр источника: имя базы, файла, проекта. Вместе с source определяет набор данных.",
+          "$ref": "#/$defs/text"
+        },
+        "title": {
+          "description": "Заголовок набора данных для окна программы.",
+          "$ref": "#/$defs/text"
+        },
+        "exportedAt": { "$ref": "#/$defs/dateTime" },
+        "exportedBy": { "$ref": "#/$defs/text" },
+        "kind": {
+          "description": "full — снимок; incremental — изменения с changedSince; changes — правки из программы; results — ответ источника на правки.",
+          "enum": ["full", "incremental", "changes", "results"]
+        },
+        "changedSince": {
+          "description": "Метка, относительно которой собран incremental (cursor предыдущего документа).",
+          "$ref": "#/$defs/text"
+        },
+        "cursor": {
+          "description": "Метка для следующего инкрементального запроса.",
+          "$ref": "#/$defs/text"
+        },
+        "defaultEditable": {
+          "description": "Список editable для узлов, у которых он не указан. Нет ни того, ни другого — источник ничего не ограничивает.",
+          "$ref": "#/$defs/editableList"
+        },
+        "generator": {
+          "description": "Программа, создавшая документ.",
+          "type": "object",
+          "required": ["name"],
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "version": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "dictionaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "levels": {
+          "description": "Уровни иерархии: раздел, проект, задача… Число уровней любое, минимум один.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/level" }
+        },
+        "statuses": { "type": "array", "items": { "$ref": "#/$defs/status" } },
+        "priorities": { "type": "array", "items": { "$ref": "#/$defs/scaleItem" } },
+        "urgencies": { "type": "array", "items": { "$ref": "#/$defs/scaleItem" } },
+        "impacts": { "type": "array", "items": { "$ref": "#/$defs/scaleItem" } },
+        "categories": { "type": "array", "items": { "$ref": "#/$defs/dictItem" } },
+        "people": { "type": "array", "items": { "$ref": "#/$defs/person" } },
+        "customFields": { "type": "array", "items": { "$ref": "#/$defs/customField" } }
+      }
+    },
+    "level": {
+      "type": "object",
+      "required": ["id", "name", "order"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "order": {
+          "description": "Глубина: 1 — верхний уровень.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "color": { "$ref": "#/$defs/color" }
+      }
+    },
+    "status": {
+      "type": "object",
+      "required": ["id", "name", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "kind": {
+          "description": "Смысл статуса для логики и цветов по умолчанию. Название — любое.",
+          "enum": ["notStarted", "inProgress", "onHold", "release", "done", "cancelled", "overdue"]
+        },
+        "color": { "$ref": "#/$defs/color" },
+        "order": { "type": "integer" }
+      }
+    },
+    "scaleItem": {
+      "description": "Значение шкалы (приоритет, срочность, влияние). order — чем больше, тем выше.",
+      "type": "object",
+      "required": ["id", "name", "order"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "order": { "type": "integer" },
+        "color": { "$ref": "#/$defs/color" }
+      }
+    },
+    "dictItem": {
+      "type": "object",
+      "required": ["id", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "color": { "$ref": "#/$defs/color" }
+      }
+    },
+    "person": {
+      "type": "object",
+      "required": ["id", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": {
+          "description": "Как показывать в таблице, например «Аналитик 1».",
+          "type": "string",
+          "minLength": 1
+        },
+        "fullName": { "$ref": "#/$defs/text" },
+        "email": { "$ref": "#/$defs/text" }
+      }
+    },
+    "customField": {
+      "type": "object",
+      "required": ["id", "name", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/customFieldId" },
+        "name": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["string", "number", "date", "dateTime", "boolean", "enum"] },
+        "values": {
+          "description": "Допустимые значения для type = enum.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/dictItem" }
+        }
+      },
+      "if": { "properties": { "type": { "const": "enum" } } },
+      "then": { "required": ["values"] }
+    },
+
+    "node": {
+      "type": "object",
+      "required": ["id", "level", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "parentId": {
+          "description": "Родитель или null для верхнего уровня.",
+          "$ref": "#/$defs/idOrNull"
+        },
+        "level": {
+          "description": "id уровня из dictionaries.levels.",
+          "$ref": "#/$defs/id"
+        },
+        "order": {
+          "description": "Порядок среди соседей, как в источнике.",
+          "type": "number"
+        },
+        "number": {
+          "description": "Номер или код для показа: «5012», «1.2».",
+          "$ref": "#/$defs/text"
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "$ref": "#/$defs/text" },
+        "executors": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "initiator": { "$ref": "#/$defs/idOrNull" },
+        "planStart": { "$ref": "#/$defs/date" },
+        "planEnd": { "$ref": "#/$defs/date" },
+        "factStart": { "$ref": "#/$defs/date" },
+        "factEnd": { "$ref": "#/$defs/date" },
+        "percent": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "status": { "$ref": "#/$defs/idOrNull" },
+        "priority": { "$ref": "#/$defs/idOrNull" },
+        "urgency": { "$ref": "#/$defs/idOrNull" },
+        "impact": { "$ref": "#/$defs/idOrNull" },
+        "category": { "$ref": "#/$defs/idOrNull" },
+        "color": {
+          "description": "Цвет полосы узла (например, проекта). Нет — программа подберёт пастельный сама.",
+          "$ref": "#/$defs/color"
+        },
+        "milestone": {
+          "description": "Веха — событие без длительности.",
+          "type": "boolean"
+        },
+        "predecessors": {
+          "description": "Зависимости: от каких узлов зависит этот.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "$ref": "#/$defs/id" },
+              "type": {
+                "description": "FS — начать после окончания (по умолчанию), SS, FF, SF.",
+                "enum": ["FS", "SS", "FF", "SF"]
+              },
+              "lagDays": { "type": "number" }
+            }
+          }
+        },
+        "url": {
+          "description": "Ссылка «Открыть в источнике» (https://…, e1c://…).",
+          "$ref": "#/$defs/text"
+        },
+        "custom": {
+          "description": "Значения пользовательских полей: ключ — id из dictionaries.customFields.",
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/customFieldId" },
+          "additionalProperties": { "type": ["string", "number", "boolean", "null"] }
+        },
+        "version": {
+          "description": "Версия данных узла в источнике — для обнаружения конфликтов.",
+          "$ref": "#/$defs/text"
+        },
+        "editable": { "$ref": "#/$defs/editableList" }
+      }
+    },
+
+    "change": {
+      "type": "object",
+      "required": ["changeId", "nodeId", "field", "newValue", "at"],
+      "additionalProperties": false,
+      "properties": {
+        "changeId": {
+          "description": "Уникальный id изменения (UUID); по нему приходит результат.",
+          "$ref": "#/$defs/id"
+        },
+        "nodeId": { "$ref": "#/$defs/id" },
+        "field": { "$ref": "#/$defs/fieldName" },
+        "oldValue": {
+          "description": "Значение до правки — каким оно было в данных источника.",
+          "$ref": "#/$defs/value"
+        },
+        "newValue": { "$ref": "#/$defs/value" },
+        "baseVersion": {
+          "description": "version узла, от которого сделана правка.",
+          "$ref": "#/$defs/text"
+        },
+        "author": {
+          "description": "ФИО того, кто подтвердил изменение.",
+          "$ref": "#/$defs/text"
+        },
+        "machine": { "$ref": "#/$defs/text" },
+        "at": { "$ref": "#/$defs/dateTime" },
+        "comment": { "$ref": "#/$defs/text" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "field": { "pattern": "^(plan|fact)(Start|End)$" } } },
+          "then": {
+            "properties": {
+              "oldValue": { "$ref": "#/$defs/date" },
+              "newValue": { "$ref": "#/$defs/date" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "field": { "const": "percent" } } },
+          "then": {
+            "properties": {
+              "oldValue": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+              "newValue": { "type": ["number", "null"], "minimum": 0, "maximum": 100 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "field": { "const": "executors" } } },
+          "then": {
+            "properties": {
+              "oldValue": { "type": ["array", "null"] },
+              "newValue": { "type": "array" }
+            }
+          }
+        }
+      ]
+    },
+
+    "result": {
+      "type": "object",
+      "required": ["changeId", "result"],
+      "additionalProperties": false,
+      "properties": {
+        "changeId": { "$ref": "#/$defs/id" },
+        "result": {
+          "description": "applied — записано; conflict — в источнике уже другое значение; rejected — отказ.",
+          "enum": ["applied", "conflict", "rejected"]
+        },
+        "currentValue": {
+          "description": "Значение в источнике сейчас (для conflict).",
+          "$ref": "#/$defs/value"
+        },
+        "currentVersion": { "$ref": "#/$defs/text" },
+        "reason": {
+          "description": "Понятная человеку причина (для rejected — обязательно).",
+          "$ref": "#/$defs/text"
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "result": { "const": "conflict" } } },
+          "then": { "required": ["currentValue"] }
+        },
+        {
+          "if": { "properties": { "result": { "const": "rejected" } } },
+          "then": { "required": ["reason"] }
+        }
+      ]
+    }
+  }
+}

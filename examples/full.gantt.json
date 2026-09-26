@@ -1,0 +1,4813 @@
+{
+ "$schema": "../schema/gantt-exchange.schema.json",
+ "format": "gantt-exchange",
+ "schemaVersion": "1.0",
+ "meta": {
+  "source": "demo:gantt",
+  "sourceName": "Демо-данные",
+  "title": "Демо: проекты IT-отдела",
+  "exportedAt": "2026-09-25T09:00:00+07:00",
+  "exportedBy": null,
+  "kind": "full",
+  "changedSince": null,
+  "cursor": "2026-09-25T09:00:00+07:00",
+  "generator": {
+   "name": "tools/make_demo.py",
+   "version": "1"
+  }
+ },
+ "dictionaries": {
+  "levels": [
+   {
+    "id": "section",
+    "name": "Раздел",
+    "order": 1
+   },
+   {
+    "id": "project",
+    "name": "Проект",
+    "order": 2
+   },
+   {
+    "id": "task",
+    "name": "Задание",
+    "order": 3
+   }
+  ],
+  "statuses": [
+   {
+    "id": "inProgress",
+    "name": "В работе",
+    "kind": "inProgress",
+    "order": 1
+   },
+   {
+    "id": "done",
+    "name": "Выполнено",
+    "kind": "done",
+    "order": 2
+   }
+  ],
+  "priorities": [
+   {
+    "id": "p1",
+    "name": "Очень низкий",
+    "order": 1
+   },
+   {
+    "id": "p2",
+    "name": "Низкий",
+    "order": 2
+   },
+   {
+    "id": "p3",
+    "name": "Средний",
+    "order": 3
+   },
+   {
+    "id": "p4",
+    "name": "Высокий",
+    "order": 4
+   }
+  ],
+  "urgencies": [
+   {
+    "id": "u1",
+    "name": "Очень низкая",
+    "order": 1
+   },
+   {
+    "id": "u2",
+    "name": "Низкая",
+    "order": 2
+   },
+   {
+    "id": "u3",
+    "name": "Средняя",
+    "order": 3
+   },
+   {
+    "id": "u4",
+    "name": "Высокая",
+    "order": 4
+   }
+  ],
+  "impacts": [
+   {
+    "id": "i1",
+    "name": "Очень низкое",
+    "order": 1
+   },
+   {
+    "id": "i2",
+    "name": "Низкое",
+    "order": 2
+   },
+   {
+    "id": "i3",
+    "name": "Среднее",
+    "order": 3
+   },
+   {
+    "id": "i4",
+    "name": "Высокое",
+    "order": 4
+   }
+  ],
+  "people": [
+   {
+    "id": "02a8daea-87a6-5889-a53e-a76da12369b2",
+    "name": "Администратор"
+   },
+   {
+    "id": "cbab0757-d52b-5065-b049-6aafdeb4322c",
+    "name": "Аналитик 1"
+   },
+   {
+    "id": "5d36ebda-b53c-54c6-b5b3-be050da43db9",
+    "name": "Аналитик 2"
+   },
+   {
+    "id": "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e",
+    "name": "Аналитик 3"
+   },
+   {
+    "id": "b7a5c8ed-40f9-563e-a753-14f5800b8b8c",
+    "name": "Архитектор"
+   },
+   {
+    "id": "82ada29d-0a92-5d2e-9c2b-38e067158098",
+    "name": "Инженер поддержки"
+   },
+   {
+    "id": "29650c39-70f4-595b-b801-9ad65621b6e3",
+    "name": "Методолог"
+   },
+   {
+    "id": "e61b836f-de54-5997-a82a-a5158ed4683c",
+    "name": "Разработчик 1"
+   },
+   {
+    "id": "17c823ff-0b8c-5394-821c-ca0a1d43511d",
+    "name": "Разработчик 2"
+   },
+   {
+    "id": "9cca6da9-a542-5287-8d6d-9b31bd9c78fb",
+    "name": "Разработчик 3"
+   },
+   {
+    "id": "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98",
+    "name": "Разработчик 4"
+   },
+   {
+    "id": "3c08a6c4-f389-5b73-a728-bebc6e9029a1",
+    "name": "Руководитель проекта"
+   },
+   {
+    "id": "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce",
+    "name": "Тестировщик 1"
+   },
+   {
+    "id": "a9c1d244-4399-5dee-a7e4-3c87bfe443ad",
+    "name": "Тестировщик 2"
+   }
+  ],
+  "customFields": [
+   {
+    "id": "taskKind",
+    "name": "Вид задания",
+    "type": "enum",
+    "values": [
+     {
+      "id": "incident",
+      "name": "Инцидент"
+     },
+     {
+      "id": "changeRequest",
+      "name": "Запрос на изменение"
+     },
+     {
+      "id": "consultation",
+      "name": "Консультация"
+     },
+     {
+      "id": "serviceRequest",
+      "name": "Запрос на обслуживание"
+     }
+    ]
+   }
+  ]
+ },
+ "nodes": [
+  {
+   "id": "26892395-b12c-5632-9ce8-0371f25118bd",
+   "parentId": null,
+   "level": "section",
+   "order": 1,
+   "number": "1",
+   "name": "Развитие ERP"
+  },
+  {
+   "id": "aff93fdb-d1df-5b64-828a-70c6fffdffba",
+   "parentId": "26892395-b12c-5632-9ce8-0371f25118bd",
+   "level": "project",
+   "order": 2,
+   "name": "ЗУП. Интеграция учёта транспортных затрат",
+   "planStart": "2026-07-07",
+   "planEnd": "2027-01-12",
+   "factStart": "2026-07-14",
+   "factEnd": null
+  },
+  {
+   "id": "aef705b7-a0fd-5d12-bb33-2b38b014e2ec",
+   "parentId": "aff93fdb-d1df-5b64-828a-70c6fffdffba",
+   "level": "task",
+   "order": 3,
+   "number": "5009",
+   "name": "Бухгалтерия. Разработка отчётов по продажам",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-07-20",
+   "planEnd": null,
+   "factStart": "2026-07-20",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "99b05331-85b7-5047-8336-f500de46afd7",
+   "parentId": "aff93fdb-d1df-5b64-828a-70c6fffdffba",
+   "level": "task",
+   "order": 4,
+   "number": "5013",
+   "name": "Бухгалтерия. Исправление заказов клиентов",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-08-20",
+   "planEnd": null,
+   "factStart": "2026-08-20",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "parentId": "26892395-b12c-5632-9ce8-0371f25118bd",
+   "level": "project",
+   "order": 5,
+   "name": "ERP. Интеграция маркировки товаров",
+   "planStart": null,
+   "planEnd": null,
+   "factStart": "2026-03-14",
+   "factEnd": null
+  },
+  {
+   "id": "39f3951c-a503-5aec-924b-a0cfe6537840",
+   "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "level": "task",
+   "order": 6,
+   "number": "5020",
+   "name": "Портал. Доработка обмена с поставщиками",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-05-25",
+   "planEnd": null,
+   "factStart": "2026-05-25",
+   "factEnd": "2026-06-22",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "990e7c01-a874-5424-a8c9-45ce763752a0",
+   "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "level": "task",
+   "order": 7,
+   "number": "5029",
+   "name": "Документооборот. Автоматизация учёта партий",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-03-25",
+   "planEnd": null,
+   "factStart": "2026-03-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "3dae5bc1-9319-50fa-9412-5188dcb6e03d",
+   "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "level": "task",
+   "order": 8,
+   "number": "5037",
+   "name": "Портал. Исправление прав доступа",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-05-06",
+   "planEnd": "2026-05-25",
+   "factStart": "2026-05-06",
+   "factEnd": "2026-05-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "3c4f102b-a85f-5269-829e-721a2b9a7ac3",
+   "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "level": "task",
+   "order": 9,
+   "number": "5046",
+   "name": "Документооборот. Доработка электронного документооборота",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-04-07",
+   "planEnd": null,
+   "factStart": "2026-04-07",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "b03f9f07-7a5c-5978-9991-650ec786a5ad",
+   "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "level": "task",
+   "order": 10,
+   "number": "5053",
+   "name": "Бухгалтерия. Настройка учёта транспортных затрат",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-03-07",
+   "planEnd": null,
+   "factStart": "2026-03-07",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "4235da25-bd06-5598-80d2-55302e09fe95",
+   "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "level": "task",
+   "order": 11,
+   "number": "5062",
+   "name": "ERP. Интеграция учёта транспортных затрат",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-07-07",
+   "planEnd": null,
+   "factStart": "2026-07-07",
+   "factEnd": "2026-08-03",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "2710da69-3119-531c-934b-4fba08e7cf7a",
+   "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "level": "task",
+   "order": 12,
+   "number": "5068",
+   "name": "ERP. Обновление закрытия месяца",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-03-25",
+   "planEnd": "2026-04-13",
+   "factStart": "2026-03-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "397f6e1f-022c-5d64-8adf-53080fb9fe76",
+   "parentId": "7dade23c-e821-5f40-8a3e-f94185ec8ade",
+   "level": "task",
+   "order": 13,
+   "number": "5071",
+   "name": "TMS. Внедрение регламентных заданий",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-03-14",
+   "planEnd": "2026-04-09",
+   "factStart": "2026-03-14",
+   "factEnd": "2026-03-20",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "5c3ee7ce-b9f9-54e4-a0f8-dd56ec9750a4",
+   "parentId": "26892395-b12c-5632-9ce8-0371f25118bd",
+   "level": "project",
+   "order": 14,
+   "name": "ЗУП. Разработка заказов клиентов",
+   "planStart": "2026-09-10",
+   "planEnd": "2026-12-09",
+   "factStart": "2026-09-15",
+   "factEnd": null
+  },
+  {
+   "id": "a8ed8485-7b26-5439-b54f-d65116939d00",
+   "parentId": "5c3ee7ce-b9f9-54e4-a0f8-dd56ec9750a4",
+   "level": "task",
+   "order": 15,
+   "number": "5073",
+   "name": "TMS. Разработка отчётов по продажам",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-08-27",
+   "planEnd": null,
+   "factStart": "2026-08-27",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "600ae60b-c2dd-519c-84b2-401da7b1f3bb",
+   "parentId": "5c3ee7ce-b9f9-54e4-a0f8-dd56ec9750a4",
+   "level": "task",
+   "order": 16,
+   "number": "5078",
+   "name": "TMS. Исправление прав доступа",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-08-31",
+   "planEnd": "2026-09-16",
+   "factStart": "2026-08-31",
+   "factEnd": "2026-09-18",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "0f41644e-7078-59d4-bab9-8958c31d1dfc",
+   "parentId": "5c3ee7ce-b9f9-54e4-a0f8-dd56ec9750a4",
+   "level": "task",
+   "order": 17,
+   "number": "5079",
+   "name": "TMS. Интеграция учёта партий",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": null,
+   "factStart": "2026-09-24",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "7ec8c294-ddb5-513b-b758-5955e6fb5032",
+   "parentId": "5c3ee7ce-b9f9-54e4-a0f8-dd56ec9750a4",
+   "level": "task",
+   "order": 18,
+   "number": "5087",
+   "name": "Портал. Интеграция прав доступа",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-08-25",
+   "planEnd": null,
+   "factStart": "2026-08-25",
+   "factEnd": "2026-08-31",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "1f419161-da25-5486-a0c8-cd9542478197",
+   "parentId": "5c3ee7ce-b9f9-54e4-a0f8-dd56ec9750a4",
+   "level": "task",
+   "order": 19,
+   "number": "5096",
+   "name": "ERP. Внедрение расчёта бонусов",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-09-16",
+   "planEnd": null,
+   "factStart": "2026-09-16",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "42d66f9c-8952-58e9-b07d-f408156af61f",
+   "parentId": "5c3ee7ce-b9f9-54e4-a0f8-dd56ec9750a4",
+   "level": "task",
+   "order": 20,
+   "number": "5104",
+   "name": "Бухгалтерия. Обновление электронного документооборота",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-09-11",
+   "planEnd": null,
+   "factStart": "2026-09-11",
+   "factEnd": "2026-09-18",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "d954b478-c37d-5b2c-bf40-acc7d694d3e8",
+   "parentId": "5c3ee7ce-b9f9-54e4-a0f8-dd56ec9750a4",
+   "level": "task",
+   "order": 21,
+   "number": "5109",
+   "name": "Документооборот. Внедрение обмена с поставщиками",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "parentId": "26892395-b12c-5632-9ce8-0371f25118bd",
+   "level": "project",
+   "order": 22,
+   "name": "ЗУП. Внедрение учёта транспортных затрат",
+   "planStart": "2026-10-12",
+   "planEnd": "2027-02-06",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "d4bad19a-cbe0-54a3-a5fe-dd474e9240c9",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 23,
+   "number": "5113",
+   "name": "Документооборот. Интеграция учёта партий",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-22",
+   "planEnd": "2026-10-03",
+   "factStart": "2026-09-22",
+   "factEnd": "2026-09-24",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "e2f0df76-d3e3-555e-8191-bde89197fdfe",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 24,
+   "number": "5121",
+   "name": "WMS. Автоматизация учёта партий",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "fb147f9c-cf2c-5c8a-b065-4cba179aee9f",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 25,
+   "number": "5123",
+   "name": "ЗУП. Интеграция регламентных заданий",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-09-22",
+   "planEnd": null,
+   "factStart": "2026-09-22",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "0ac317fd-024d-5d05-9038-14787fed0e3e",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 26,
+   "number": "5130",
+   "name": "ЗУП. Разработка складских операций",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-22",
+   "planEnd": "2026-10-08",
+   "factStart": "2026-09-22",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "2d4506ca-7022-58c8-8e82-2ac1d0eb4286",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 27,
+   "number": "5139",
+   "name": "ERP. Доработка маркировки товаров",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "fcd20bc6-3365-51a3-8638-ae63ff2c6555",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 28,
+   "number": "5148",
+   "name": "CRM. Интеграция закрытия месяца",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-23",
+   "planEnd": null,
+   "factStart": "2026-09-23",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "0adf404d-0052-5f20-9288-d09b7b3531d5",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 29,
+   "number": "5151",
+   "name": "Документооборот. Разработка складских операций",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": "2026-10-30",
+   "factStart": "2026-09-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "a192f495-8889-513f-be38-af6aeeb7830a",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 30,
+   "number": "5152",
+   "name": "CRM. Доработка регламентных заданий",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": null,
+   "factStart": "2026-09-24",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "133bed8f-5644-5ffe-9c27-2c421fcb4e31",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 31,
+   "number": "5153",
+   "name": "WMS. Настройка прав доступа",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-09-22",
+   "planEnd": "2026-10-20",
+   "factStart": "2026-09-22",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "f53b7eaa-d228-56c4-adde-626d0b2011c1",
+   "parentId": "d380fda3-2f2d-54ce-9546-de7e947983ef",
+   "level": "task",
+   "order": 32,
+   "number": "5162",
+   "name": "Бухгалтерия. Обновление ценообразования",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "parentId": "26892395-b12c-5632-9ce8-0371f25118bd",
+   "level": "project",
+   "order": 33,
+   "name": "ERP. Доработка регламентных заданий",
+   "planStart": "2026-09-07",
+   "planEnd": "2026-12-14",
+   "factStart": "2026-09-11",
+   "factEnd": null
+  },
+  {
+   "id": "990646aa-8f0b-501f-a930-93968f9f74f8",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 34,
+   "number": "5170",
+   "name": "Документооборот. Настройка закрытия месяца",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-08-27",
+   "planEnd": null,
+   "factStart": "2026-08-27",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "8bd8c57a-2ec5-5e50-88ce-5eeee7f7ae8b",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 35,
+   "number": "5174",
+   "name": "ERP. Доработка закрытия месяца",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-09-15",
+   "planEnd": null,
+   "factStart": "2026-09-15",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "4cef64b4-4961-50c2-885f-1d4c8d166243",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 36,
+   "number": "5177",
+   "name": "TMS. Автоматизация электронного документооборота",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-08-18",
+   "planEnd": null,
+   "factStart": "2026-08-18",
+   "factEnd": "2026-08-20",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "0194bbfd-4f45-5029-a55f-a5d15227530e",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 37,
+   "number": "5179",
+   "name": "ERP. Доработка заказов клиентов",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-08-27",
+   "planEnd": null,
+   "factStart": "2026-08-27",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "05bee5f1-d819-5d19-9314-f70193ac8354",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 38,
+   "number": "5185",
+   "name": "ERP. Автоматизация учёта транспортных затрат",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-02",
+   "planEnd": null,
+   "factStart": "2026-09-02",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "be8d4e27-6e91-5078-b6ad-a886ec4840e4",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 39,
+   "number": "5187",
+   "name": "Документооборот. Обновление закрытия месяца",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-08-30",
+   "planEnd": null,
+   "factStart": "2026-08-30",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "0578b45d-99fd-5581-9a73-aa27f0de9ef7",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 40,
+   "number": "5191",
+   "name": "ERP. Обновление маркировки товаров",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-08-19",
+   "planEnd": null,
+   "factStart": "2026-08-19",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "7cf40283-7f9d-5abb-8cc5-44e0fe5f112d",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 41,
+   "number": "5200",
+   "name": "CRM. Исправление закрытия месяца",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-09-06",
+   "planEnd": null,
+   "factStart": "2026-09-06",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "87c92596-c1bd-52f6-bbff-a3a90a264c88",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 42,
+   "number": "5209",
+   "name": "Бухгалтерия. Исправление учёта партий",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-08-31",
+   "planEnd": null,
+   "factStart": "2026-08-31",
+   "factEnd": "2026-09-02",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "64c9d2ca-3fe1-5eab-9eb3-c142113a1359",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 43,
+   "number": "5214",
+   "name": "TMS. Разработка отчётов по продажам",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-09-08",
+   "planEnd": "2026-09-20",
+   "factStart": "2026-09-08",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "8e9babe4-66cd-5d41-920c-9513e97cecf7",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 44,
+   "number": "5223",
+   "name": "ERP. Автоматизация учёта партий",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-09-05",
+   "planEnd": "2026-09-21",
+   "factStart": "2026-09-05",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "7e094170-1b0b-5726-b589-d77f79b825c7",
+   "parentId": "d3bcbaa0-6bce-565f-bff3-64e95baa3d17",
+   "level": "task",
+   "order": 45,
+   "number": "5224",
+   "name": "ERP. Доработка отчётов по продажам",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-09-09",
+   "planEnd": null,
+   "factStart": "2026-09-09",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "parentId": "26892395-b12c-5632-9ce8-0371f25118bd",
+   "level": "project",
+   "order": 46,
+   "name": "Документооборот. Исправление заказов клиентов",
+   "planStart": "2026-05-30",
+   "planEnd": "2026-11-12",
+   "factStart": "2026-05-26",
+   "factEnd": null
+  },
+  {
+   "id": "b9ba0654-b347-539d-8f0d-a239c8dbf99f",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 47,
+   "number": "5230",
+   "name": "ERP. Внедрение сверки остатков",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-08-29",
+   "planEnd": null,
+   "factStart": "2026-08-29",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "1238717b-3125-5972-b942-b2302c8e2b10",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 48,
+   "number": "5239",
+   "name": "TMS. Настройка заказов клиентов",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-08-30",
+   "planEnd": null,
+   "factStart": "2026-08-30",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "ee9945de-7310-5b61-8666-efad0aa3850b",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 49,
+   "number": "5243",
+   "name": "ЗУП. Настройка маркировки товаров",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-09-01",
+   "planEnd": null,
+   "factStart": "2026-09-01",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "b866d7b0-ac45-56d2-ba51-3c4478d2564a",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 50,
+   "number": "5245",
+   "name": "Портал. Настройка заказов клиентов",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-06-12",
+   "planEnd": null,
+   "factStart": "2026-06-12",
+   "factEnd": "2026-07-09",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "332ffda4-b2e0-5799-809a-378e939dc914",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 51,
+   "number": "5251",
+   "name": "Бухгалтерия. Настройка закрытия месяца",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-05-21",
+   "planEnd": null,
+   "factStart": "2026-05-21",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "c1a3b63e-62f1-5c12-b94a-0df76960e768",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 52,
+   "number": "5253",
+   "name": "CRM. Доработка заказов клиентов",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-09-20",
+   "planEnd": "2026-10-18",
+   "factStart": "2026-09-20",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "59d2a966-a717-53f0-8fab-3c11664b1837",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 53,
+   "number": "5256",
+   "name": "WMS. Интеграция сверки остатков",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-05-28",
+   "planEnd": null,
+   "factStart": "2026-05-28",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "67e81015-f57e-5cdd-a1b9-fd96dd91c781",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 54,
+   "number": "5262",
+   "name": "Бухгалтерия. Интеграция расчёта бонусов",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-08-31",
+   "planEnd": null,
+   "factStart": "2026-08-31",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "43009798-3629-543b-ba7e-173a917a4f06",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 55,
+   "number": "5270",
+   "name": "CRM. Интеграция расчёта бонусов",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-05-30",
+   "planEnd": null,
+   "factStart": "2026-05-30",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "65f29942-b9d3-5e98-8113-a0e95eb5f7c8",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 56,
+   "number": "5276",
+   "name": "CRM. Исправление обмена с сайтом",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-08-24",
+   "planEnd": null,
+   "factStart": "2026-08-24",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "bc086370-0d64-5fc4-91d1-02294c8d3b19",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 57,
+   "number": "5281",
+   "name": "CRM. Обновление учёта партий",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-05-12",
+   "planEnd": null,
+   "factStart": "2026-05-12",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "b81c7ee0-4736-5662-a17f-cb8e4d791749",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 58,
+   "number": "5285",
+   "name": "Бухгалтерия. Автоматизация маркировки товаров",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-07-10",
+   "planEnd": "2026-07-27",
+   "factStart": "2026-07-10",
+   "factEnd": "2026-08-05",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "a57037a0-8768-507a-a56b-0262ab1c0c1e",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 59,
+   "number": "5291",
+   "name": "Портал. Доработка складских операций",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-06-07",
+   "planEnd": null,
+   "factStart": "2026-06-07",
+   "factEnd": "2026-07-16",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "d77dc785-69cf-54b5-86f9-e468a46cf15b",
+   "parentId": "c641ad60-7082-58fe-8aa8-c696f1198524",
+   "level": "task",
+   "order": 60,
+   "number": "5294",
+   "name": "ERP. Разработка расчёта бонусов",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-07-31",
+   "planEnd": null,
+   "factStart": "2026-07-31",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "4d8e4808-23b0-5766-adcb-0e2964b040c2",
+   "parentId": null,
+   "level": "section",
+   "order": 61,
+   "number": "2",
+   "name": "Склад и логистика"
+  },
+  {
+   "id": "edc5d53a-4537-52d6-ae21-65089d6fa029",
+   "parentId": "4d8e4808-23b0-5766-adcb-0e2964b040c2",
+   "level": "project",
+   "order": 62,
+   "name": "Портал. Внедрение обмена с сайтом",
+   "planStart": "2026-10-06",
+   "planEnd": "2027-04-12",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "c353cd9c-8eaf-5ace-a19f-ea7823119fe4",
+   "parentId": "edc5d53a-4537-52d6-ae21-65089d6fa029",
+   "level": "task",
+   "order": 63,
+   "number": "5296",
+   "name": "Портал. Автоматизация учёта транспортных затрат",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-09-17",
+   "planEnd": null,
+   "factStart": "2026-09-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "6fc89dc5-1566-5225-b42c-4599e2cf0237",
+   "parentId": "edc5d53a-4537-52d6-ae21-65089d6fa029",
+   "level": "task",
+   "order": 64,
+   "number": "5298",
+   "name": "WMS. Внедрение прав доступа",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-09-16",
+   "planEnd": null,
+   "factStart": "2026-09-16",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "parentId": "4d8e4808-23b0-5766-adcb-0e2964b040c2",
+   "level": "project",
+   "order": 65,
+   "name": "Бухгалтерия. Настройка прав доступа",
+   "planStart": "2026-02-19",
+   "planEnd": "2026-07-06",
+   "factStart": "2026-02-14",
+   "factEnd": null
+  },
+  {
+   "id": "d4ec0399-4ed4-5ccb-90e5-bab7ba3a4a26",
+   "parentId": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "level": "task",
+   "order": 66,
+   "number": "5305",
+   "name": "WMS. Исправление электронного документооборота",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-05-30",
+   "planEnd": null,
+   "factStart": "2026-05-30",
+   "factEnd": "2026-06-24",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "85e88e3d-e80b-546f-8e38-c70088e66be6",
+   "parentId": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "level": "task",
+   "order": 67,
+   "number": "5314",
+   "name": "Портал. Обновление отчётов по продажам",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-01-31",
+   "planEnd": "2026-02-16",
+   "factStart": "2026-01-31",
+   "factEnd": "2026-02-24",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "e60fbf03-82c4-5d66-9055-e4a5083a007e",
+   "parentId": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "level": "task",
+   "order": 68,
+   "number": "5316",
+   "name": "ЗУП. Внедрение обмена с сайтом",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-02-18",
+   "planEnd": null,
+   "factStart": "2026-02-18",
+   "factEnd": "2026-03-22",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "7167735b-4023-5794-ae87-b4bdda4aa536",
+   "parentId": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "level": "task",
+   "order": 69,
+   "number": "5324",
+   "name": "CRM. Обновление ценообразования",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-04-28",
+   "planEnd": null,
+   "factStart": "2026-04-28",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "e0afd4ca-3b34-524f-a9c7-99da6fdefe08",
+   "parentId": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "level": "task",
+   "order": 70,
+   "number": "5330",
+   "name": "Бухгалтерия. Автоматизация обмена с сайтом",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-02-22",
+   "planEnd": null,
+   "factStart": "2026-02-22",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "7081e68e-3d1c-5543-9bcf-e575f602f9ea",
+   "parentId": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "level": "task",
+   "order": 71,
+   "number": "5336",
+   "name": "TMS. Исправление прав доступа",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-06-06",
+   "planEnd": null,
+   "factStart": "2026-06-06",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "0f7efdf3-e59d-5b95-ac50-f0611065fa55",
+   "parentId": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "level": "task",
+   "order": 72,
+   "number": "5337",
+   "name": "ЗУП. Обновление учёта партий",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-05-25",
+   "planEnd": null,
+   "factStart": "2026-05-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "6a9f1533-302c-57b7-aae6-722874784dcc",
+   "parentId": "afdd0c22-7d9a-5539-9123-9c79201d0b01",
+   "level": "task",
+   "order": 73,
+   "number": "5343",
+   "name": "CRM. Автоматизация складских операций",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-06-14",
+   "planEnd": "2026-07-13",
+   "factStart": "2026-06-14",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "38544b3a-2e03-507e-9756-6976d9cd5ade",
+   "parentId": "4d8e4808-23b0-5766-adcb-0e2964b040c2",
+   "level": "project",
+   "order": 74,
+   "name": "Бухгалтерия. Внедрение печатных форм",
+   "planStart": "2026-09-22",
+   "planEnd": "2026-11-29",
+   "factStart": "2026-10-04",
+   "factEnd": null
+  },
+  {
+   "id": "92e6167a-1d1c-5b28-b96f-ff6bbffc6a1a",
+   "parentId": "38544b3a-2e03-507e-9756-6976d9cd5ade",
+   "level": "task",
+   "order": 75,
+   "number": "5349",
+   "name": "Документооборот. Обновление обмена с сайтом",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-17",
+   "planEnd": null,
+   "factStart": "2026-09-17",
+   "factEnd": "2026-09-19",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "34f8fc21-c7b3-596d-884f-0177f332ab0d",
+   "parentId": "38544b3a-2e03-507e-9756-6976d9cd5ade",
+   "level": "task",
+   "order": 76,
+   "number": "5358",
+   "name": "WMS. Внедрение обмена с поставщиками",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-09-08",
+   "planEnd": null,
+   "factStart": "2026-09-08",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "81c11fb9-e8c8-5d24-9ca3-7f6fa14e682e",
+   "parentId": "38544b3a-2e03-507e-9756-6976d9cd5ade",
+   "level": "task",
+   "order": 77,
+   "number": "5359",
+   "name": "ЗУП. Исправление заказов клиентов",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": "2026-10-11",
+   "factStart": "2026-09-24",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "20269cf7-df23-5bc1-9497-aea4a8551721",
+   "parentId": "38544b3a-2e03-507e-9756-6976d9cd5ade",
+   "level": "task",
+   "order": 78,
+   "number": "5367",
+   "name": "Портал. Автоматизация сверки остатков",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-17",
+   "planEnd": null,
+   "factStart": "2026-09-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "815a3de2-4897-5274-852a-7cd7d6612e13",
+   "parentId": "38544b3a-2e03-507e-9756-6976d9cd5ade",
+   "level": "task",
+   "order": 79,
+   "number": "5371",
+   "name": "CRM. Обновление складских операций",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-09-05",
+   "planEnd": null,
+   "factStart": "2026-09-05",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "c1d0ea6d-98b5-5866-82b9-32b1678d18b4",
+   "parentId": "4d8e4808-23b0-5766-adcb-0e2964b040c2",
+   "level": "project",
+   "order": 80,
+   "name": "Документооборот. Настройка сверки остатков",
+   "planStart": null,
+   "planEnd": null,
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "717ef2b1-d098-5a75-90ef-6599b00c6338",
+   "parentId": "4d8e4808-23b0-5766-adcb-0e2964b040c2",
+   "level": "project",
+   "order": 81,
+   "name": "Документооборот. Автоматизация печатных форм",
+   "planStart": "2026-08-11",
+   "planEnd": "2026-11-24",
+   "factStart": "2026-08-11",
+   "factEnd": null
+  },
+  {
+   "id": "08fde611-ce38-56b6-ad7e-2602b2bdf8cc",
+   "parentId": "717ef2b1-d098-5a75-90ef-6599b00c6338",
+   "level": "task",
+   "order": 82,
+   "number": "5373",
+   "name": "ERP. Настройка ценообразования",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-08-23",
+   "planEnd": null,
+   "factStart": "2026-08-23",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "fe7ab427-ab0a-5bea-b707-2af03a9084cd",
+   "parentId": "717ef2b1-d098-5a75-90ef-6599b00c6338",
+   "level": "task",
+   "order": 83,
+   "number": "5381",
+   "name": "CRM. Разработка сверки остатков",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-08-26",
+   "planEnd": null,
+   "factStart": "2026-08-26",
+   "factEnd": "2026-09-14",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "ac1a4417-4734-5a00-a37d-07a9756ca9a1",
+   "parentId": "717ef2b1-d098-5a75-90ef-6599b00c6338",
+   "level": "task",
+   "order": 84,
+   "number": "5384",
+   "name": "Бухгалтерия. Настройка маркировки товаров",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-08-29",
+   "planEnd": null,
+   "factStart": "2026-08-29",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "7e31aaf1-6590-5e03-889d-a73f6ca6d968",
+   "parentId": "717ef2b1-d098-5a75-90ef-6599b00c6338",
+   "level": "task",
+   "order": 85,
+   "number": "5391",
+   "name": "TMS. Внедрение расчёта бонусов",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-09-19",
+   "planEnd": null,
+   "factStart": "2026-09-19",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "47ee8fc1-5705-578a-9e97-d39ff08fdd64",
+   "parentId": null,
+   "level": "section",
+   "order": 86,
+   "number": "3",
+   "name": "Финансы и учёт"
+  },
+  {
+   "id": "60648c4e-245c-5a04-aaef-cdcd13bd86a7",
+   "parentId": "47ee8fc1-5705-578a-9e97-d39ff08fdd64",
+   "level": "project",
+   "order": 87,
+   "name": "Документооборот. Обновление маркировки товаров",
+   "planStart": "2026-10-12",
+   "planEnd": "2027-01-10",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "90c184e4-a47f-5bee-8776-047f3b7d1d04",
+   "parentId": "60648c4e-245c-5a04-aaef-cdcd13bd86a7",
+   "level": "task",
+   "order": 88,
+   "number": "5393",
+   "name": "Документооборот. Интеграция регламентных заданий",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "0dd69a8a-4e3a-5ab8-a832-09c2530b145e",
+   "parentId": "60648c4e-245c-5a04-aaef-cdcd13bd86a7",
+   "level": "task",
+   "order": 89,
+   "number": "5401",
+   "name": "Бухгалтерия. Исправление прав доступа",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-23",
+   "planEnd": null,
+   "factStart": "2026-09-23",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "4fc689a0-5ea4-5b24-b873-65927303c419",
+   "parentId": "60648c4e-245c-5a04-aaef-cdcd13bd86a7",
+   "level": "task",
+   "order": 90,
+   "number": "5405",
+   "name": "ERP. Исправление сверки остатков",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": "2026-11-03",
+   "factStart": "2026-09-24",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "e8926f61-4444-5ddb-8c27-97c707bc68b4",
+   "parentId": "60648c4e-245c-5a04-aaef-cdcd13bd86a7",
+   "level": "task",
+   "order": 91,
+   "number": "5414",
+   "name": "ERP. Интеграция регламентных заданий",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "d69c9576-7005-57eb-9c1e-2dca07f74a51",
+   "parentId": "60648c4e-245c-5a04-aaef-cdcd13bd86a7",
+   "level": "task",
+   "order": 92,
+   "number": "5422",
+   "name": "ЗУП. Разработка ценообразования",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "173ff2cf-e76e-5795-86eb-e564278b0ef6",
+   "parentId": "60648c4e-245c-5a04-aaef-cdcd13bd86a7",
+   "level": "task",
+   "order": 93,
+   "number": "5430",
+   "name": "Бухгалтерия. Разработка расчёта бонусов",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": null,
+   "factStart": "2026-09-24",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "d6acb9d5-f97f-5e2a-9570-3a8e3529e067",
+   "parentId": "60648c4e-245c-5a04-aaef-cdcd13bd86a7",
+   "level": "task",
+   "order": 94,
+   "number": "5433",
+   "name": "Бухгалтерия. Обновление обмена с сайтом",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-09-23",
+   "planEnd": null,
+   "factStart": "2026-09-23",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "parentId": "47ee8fc1-5705-578a-9e97-d39ff08fdd64",
+   "level": "project",
+   "order": 95,
+   "name": "WMS. Настройка сверки остатков",
+   "planStart": "2026-10-13",
+   "planEnd": "2027-01-26",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "5559ba0e-1a50-5e1e-8b27-0acc7e89a470",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 96,
+   "number": "5440",
+   "name": "Документооборот. Исправление учёта партий",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": "2026-09-29",
+   "factStart": "2026-09-24",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "9529023c-fd0e-547c-bf0a-b40bdad8cbf5",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 97,
+   "number": "5446",
+   "name": "TMS. Обновление отчётов по продажам",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": null,
+   "factStart": "2026-09-24",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "9ce7edd0-06f8-5658-b82a-c2e3cfb11fe2",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 98,
+   "number": "5452",
+   "name": "Документооборот. Интеграция сверки остатков",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "d15e3774-5b70-5ffe-ac48-bc269448a857",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 99,
+   "number": "5457",
+   "name": "Документооборот. Настройка обмена с поставщиками",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "9314b12e-0219-5c86-b15f-cf725b9a8fb5",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 100,
+   "number": "5461",
+   "name": "TMS. Доработка складских операций",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-23",
+   "planEnd": null,
+   "factStart": "2026-09-23",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "0dc1fdf5-97be-5975-95bd-6bebab5c9e3e",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 101,
+   "number": "5469",
+   "name": "TMS. Обновление сверки остатков",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": null,
+   "factStart": "2026-09-24",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "5d5996df-185c-59d0-85f0-db677d120125",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 102,
+   "number": "5476",
+   "name": "Портал. Настройка маркировки товаров",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": null,
+   "factStart": "2026-09-24",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "b5f9bc91-a931-5611-bbec-a88907785ea2",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 103,
+   "number": "5479",
+   "name": "Бухгалтерия. Интеграция закрытия месяца",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": "2026-10-10",
+   "factStart": "2026-09-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "6d35632a-ef06-5fb1-819e-fe64f5ab269f",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 104,
+   "number": "5482",
+   "name": "ERP. Обновление ценообразования",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": "2026-10-23",
+   "factStart": "2026-09-24",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "e819502f-2b05-5728-9629-deeddea9ac92",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 105,
+   "number": "5490",
+   "name": "ЗУП. Интеграция прав доступа",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": "2026-10-27",
+   "factStart": "2026-09-24",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "b315b828-1ec8-5849-99f4-45e68f1086fd",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 106,
+   "number": "5493",
+   "name": "Бухгалтерия. Разработка закрытия месяца",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-09-24",
+   "planEnd": null,
+   "factStart": "2026-09-24",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "2496d51c-a965-50cd-9fcf-71a542fe94e5",
+   "parentId": "01b5c339-4536-5dc2-90de-438a9e3920b4",
+   "level": "task",
+   "order": 107,
+   "number": "5496",
+   "name": "ERP. Доработка учёта партий",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-23",
+   "planEnd": null,
+   "factStart": "2026-09-23",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "parentId": "47ee8fc1-5705-578a-9e97-d39ff08fdd64",
+   "level": "project",
+   "order": 108,
+   "name": "Бухгалтерия. Настройка печатных форм",
+   "planStart": "2026-04-29",
+   "planEnd": "2026-09-30",
+   "factStart": "2026-05-06",
+   "factEnd": null
+  },
+  {
+   "id": "3c830b91-a281-505d-a0b7-bcda9ffe57b2",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 109,
+   "number": "5505",
+   "name": "TMS. Обновление заказов клиентов",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-05-27",
+   "planEnd": "2026-07-01",
+   "factStart": "2026-05-27",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "1f0238ff-c786-5c72-9936-9b6ed7c21523",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 110,
+   "number": "5509",
+   "name": "Бухгалтерия. Обновление обмена с поставщиками",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-06-29",
+   "planEnd": null,
+   "factStart": "2026-06-29",
+   "factEnd": "2026-07-04",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "233d77ea-67d7-5b66-a029-2623006a0a6e",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 111,
+   "number": "5512",
+   "name": "Портал. Автоматизация электронного документооборота",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-07-10",
+   "planEnd": null,
+   "factStart": "2026-07-10",
+   "factEnd": "2026-08-11",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "59a32c35-2215-5e62-9337-b62509dc12fe",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 112,
+   "number": "5515",
+   "name": "TMS. Разработка ценообразования",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-09-14",
+   "planEnd": null,
+   "factStart": "2026-09-14",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "9cd56d63-9d89-5241-bfa5-2985ed35bafe",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 113,
+   "number": "5522",
+   "name": "Бухгалтерия. Настройка ценообразования",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-07-12",
+   "planEnd": "2026-08-10",
+   "factStart": "2026-07-12",
+   "factEnd": "2026-07-31",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "358c3f3f-cb48-5bbb-96a5-a7ac8bc8a4b1",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 114,
+   "number": "5524",
+   "name": "ЗУП. Интеграция заказов клиентов",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-05-26",
+   "planEnd": null,
+   "factStart": "2026-05-26",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "9c28b460-ba6f-5086-83b3-4868be18fb98",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 115,
+   "number": "5530",
+   "name": "Документооборот. Внедрение учёта транспортных затрат",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-05-16",
+   "planEnd": null,
+   "factStart": "2026-05-16",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "3844601e-607e-5055-b917-f8a774fd43ea",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 116,
+   "number": "5539",
+   "name": "ЗУП. Внедрение учёта партий",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-08-24",
+   "planEnd": null,
+   "factStart": "2026-08-24",
+   "factEnd": "2026-09-01",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "624ebde9-82fb-5ce5-8b5c-96640a266d1d",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 117,
+   "number": "5542",
+   "name": "ЗУП. Доработка обмена с сайтом",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-07-25",
+   "planEnd": "2026-08-02",
+   "factStart": "2026-07-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "894622d4-304b-5166-b6d5-2cb98239afef",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 118,
+   "number": "5544",
+   "name": "CRM. Автоматизация ценообразования",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-06-05",
+   "planEnd": null,
+   "factStart": "2026-06-05",
+   "factEnd": "2026-06-11",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "9deb5e9f-f45e-5779-b8bb-fe53ae348d87",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 119,
+   "number": "5551",
+   "name": "WMS. Внедрение складских операций",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-06-12",
+   "planEnd": null,
+   "factStart": "2026-06-12",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "08fc137c-ff8a-5f0d-b609-93a49d3ee94e",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 120,
+   "number": "5555",
+   "name": "TMS. Разработка электронного документооборота",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-05-22",
+   "planEnd": null,
+   "factStart": "2026-05-22",
+   "factEnd": "2026-06-23",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "e1e0944b-48b6-5c21-9443-a64f99b18bdd",
+   "parentId": "240995df-ed2b-5e39-b54a-67b1745f4c23",
+   "level": "task",
+   "order": 121,
+   "number": "5559",
+   "name": "Портал. Разработка прав доступа",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-05-12",
+   "planEnd": null,
+   "factStart": "2026-05-12",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "84d31a4c-5179-505f-9719-f555a4613457",
+   "parentId": "47ee8fc1-5705-578a-9e97-d39ff08fdd64",
+   "level": "project",
+   "order": 122,
+   "name": "ERP. Обновление учёта партий",
+   "planStart": "2026-02-25",
+   "planEnd": "2026-09-01",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "80b5a1c1-0fa4-51a8-bdc3-c15c032e5ed6",
+   "parentId": "84d31a4c-5179-505f-9719-f555a4613457",
+   "level": "task",
+   "order": 123,
+   "number": "5562",
+   "name": "CRM. Внедрение расчёта бонусов",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-07-08",
+   "planEnd": null,
+   "factStart": "2026-07-08",
+   "factEnd": "2026-08-06",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "ce9675bc-72ba-5780-ac4c-7ee3366f121b",
+   "parentId": "84d31a4c-5179-505f-9719-f555a4613457",
+   "level": "task",
+   "order": 124,
+   "number": "5567",
+   "name": "WMS. Интеграция учёта транспортных затрат",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-05-28",
+   "planEnd": null,
+   "factStart": "2026-05-28",
+   "factEnd": "2026-06-26",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "775d87e3-7398-5c1c-8510-cc91f315fec7",
+   "parentId": "84d31a4c-5179-505f-9719-f555a4613457",
+   "level": "task",
+   "order": 125,
+   "number": "5571",
+   "name": "TMS. Настройка прав доступа",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-03-13",
+   "planEnd": "2026-04-08",
+   "factStart": "2026-03-13",
+   "factEnd": "2026-03-15",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "448dea30-eae9-5b49-a63e-23aaf33e695f",
+   "parentId": "84d31a4c-5179-505f-9719-f555a4613457",
+   "level": "task",
+   "order": 126,
+   "number": "5576",
+   "name": "ЗУП. Обновление обмена с сайтом",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-04-17",
+   "planEnd": null,
+   "factStart": "2026-04-17",
+   "factEnd": "2026-05-22",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "parentId": "47ee8fc1-5705-578a-9e97-d39ff08fdd64",
+   "level": "project",
+   "order": 127,
+   "name": "Документооборот. Внедрение складских операций",
+   "planStart": "2026-03-25",
+   "planEnd": "2026-06-03",
+   "factStart": "2026-04-06",
+   "factEnd": null
+  },
+  {
+   "id": "b8f06d30-b213-51cc-8944-6fb10b80dc41",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 128,
+   "number": "5577",
+   "name": "ERP. Доработка регламентных заданий",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-03-28",
+   "planEnd": null,
+   "factStart": "2026-03-28",
+   "factEnd": "2026-04-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "cf75e10c-e937-5366-b9c8-af4dd4b99897",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 129,
+   "number": "5583",
+   "name": "CRM. Настройка отчётов по продажам",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-04-09",
+   "planEnd": null,
+   "factStart": "2026-04-09",
+   "factEnd": "2026-05-11",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "89ccb2cf-5913-59d0-9091-73ab3dd27a89",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 130,
+   "number": "5587",
+   "name": "TMS. Доработка заказов клиентов",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-04-14",
+   "planEnd": null,
+   "factStart": "2026-04-14",
+   "factEnd": "2026-04-16",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "c285f9ab-85a1-5af7-beed-6fba734ca794",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 131,
+   "number": "5596",
+   "name": "TMS. Настройка прав доступа",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-05-14",
+   "planEnd": null,
+   "factStart": "2026-05-14",
+   "factEnd": "2026-06-15",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "1d05a696-a40b-5c3c-a11f-49fdfe3b9192",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 132,
+   "number": "5597",
+   "name": "TMS. Обновление прав доступа",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-05-28",
+   "planEnd": null,
+   "factStart": "2026-05-28",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "66dfbb6b-489c-5dee-96be-56a8e5ea7889",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 133,
+   "number": "5605",
+   "name": "ЗУП. Настройка учёта транспортных затрат",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-03-08",
+   "planEnd": null,
+   "factStart": "2026-03-08",
+   "factEnd": "2026-03-30",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "03dc9f6b-c719-5788-bf60-6e0e9aaa701a",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 134,
+   "number": "5606",
+   "name": "TMS. Настройка сверки остатков",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-04-22",
+   "planEnd": "2026-05-03",
+   "factStart": "2026-04-22",
+   "factEnd": "2026-04-27",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "2ea9e45c-3548-54f0-9767-b5f80e67e430",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 135,
+   "number": "5607",
+   "name": "ЗУП. Автоматизация закрытия месяца",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-04-13",
+   "planEnd": "2026-04-29",
+   "factStart": "2026-04-13",
+   "factEnd": "2026-04-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "a52e9e25-8723-5ebf-b523-018ec5d3597e",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 136,
+   "number": "5609",
+   "name": "Портал. Обновление маркировки товаров",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-03-21",
+   "planEnd": null,
+   "factStart": "2026-03-21",
+   "factEnd": "2026-04-08",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "0d5fc4b2-c754-5d76-b2de-41543570475b",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 137,
+   "number": "5610",
+   "name": "Портал. Разработка расчёта бонусов",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-06-01",
+   "planEnd": null,
+   "factStart": "2026-06-01",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "605625d7-b734-529e-be97-df270c6a8c6c",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 138,
+   "number": "5616",
+   "name": "ЗУП. Интеграция учёта партий",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-05-15",
+   "planEnd": null,
+   "factStart": "2026-05-15",
+   "factEnd": "2026-06-17",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "4c63b275-71f5-52c2-a6db-2eb6d20de61f",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 139,
+   "number": "5619",
+   "name": "WMS. Разработка обмена с сайтом",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-04-02",
+   "planEnd": null,
+   "factStart": "2026-04-02",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "20eb8bec-406e-5b27-8970-ac1147b76903",
+   "parentId": "58dd6fd6-f37f-58c4-866f-f04be9c9e2c5",
+   "level": "task",
+   "order": 140,
+   "number": "5621",
+   "name": "ERP. Разработка учёта транспортных затрат",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-04-16",
+   "planEnd": null,
+   "factStart": "2026-04-16",
+   "factEnd": "2026-05-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "parentId": "47ee8fc1-5705-578a-9e97-d39ff08fdd64",
+   "level": "project",
+   "order": 141,
+   "name": "ЗУП. Доработка складских операций",
+   "planStart": "2026-06-26",
+   "planEnd": "2026-11-29",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "345e2938-3a71-5bc2-a313-1716625384d5",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 142,
+   "number": "5630",
+   "name": "TMS. Автоматизация обмена с сайтом",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-06-21",
+   "planEnd": null,
+   "factStart": "2026-06-21",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "a32272f3-ae7f-5952-8b3a-016d8aed3c42",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 143,
+   "number": "5636",
+   "name": "WMS. Интеграция регламентных заданий",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-06-23",
+   "planEnd": null,
+   "factStart": "2026-06-23",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "78543955-53cf-533a-b925-3e93cd765239",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 144,
+   "number": "5639",
+   "name": "WMS. Автоматизация закрытия месяца",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-08-09",
+   "planEnd": null,
+   "factStart": "2026-08-09",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "096c10f3-cb86-5c89-8f3b-277209674217",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 145,
+   "number": "5645",
+   "name": "TMS. Настройка закрытия месяца",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-08-25",
+   "planEnd": null,
+   "factStart": "2026-08-25",
+   "factEnd": "2026-09-17",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "4abd5cfd-dd58-5809-a2c6-5ae5f8d00511",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 146,
+   "number": "5648",
+   "name": "WMS. Настройка учёта транспортных затрат",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-09-16",
+   "planEnd": null,
+   "factStart": "2026-09-16",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "8770e35c-3ffa-513a-8809-c81673216d16",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 147,
+   "number": "5655",
+   "name": "WMS. Внедрение расчёта бонусов",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-08-06",
+   "planEnd": "2026-09-11",
+   "factStart": "2026-08-06",
+   "factEnd": "2026-08-11",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "d831366c-c05b-563d-be3f-9d3cdc2e8cd4",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 148,
+   "number": "5662",
+   "name": "WMS. Доработка печатных форм",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-07-17",
+   "planEnd": "2026-08-14",
+   "factStart": "2026-07-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "4e1cd2f9-8366-570c-8ebe-c9bcb0a99408",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 149,
+   "number": "5664",
+   "name": "TMS. Разработка обмена с поставщиками",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-07-03",
+   "planEnd": null,
+   "factStart": "2026-07-03",
+   "factEnd": "2026-08-17",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "e5951d77-83d4-55b3-a8dc-63dedac3633a",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 150,
+   "number": "5667",
+   "name": "CRM. Внедрение регламентных заданий",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-07-27",
+   "planEnd": null,
+   "factStart": "2026-07-27",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "3fe3fb00-4f29-529d-abc9-ecf167089630",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 151,
+   "number": "5671",
+   "name": "Документооборот. Настройка маркировки товаров",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-08-17",
+   "planEnd": null,
+   "factStart": "2026-08-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "2096813c-6711-569d-bc59-cceca478064c",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 152,
+   "number": "5673",
+   "name": "ERP. Доработка заказов клиентов",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-09-17",
+   "planEnd": null,
+   "factStart": "2026-09-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "a7ccc05b-e8da-5a89-8ba6-1c61a6f1ea28",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 153,
+   "number": "5678",
+   "name": "Документооборот. Автоматизация сверки остатков",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-08-05",
+   "planEnd": "2026-08-30",
+   "factStart": "2026-08-05",
+   "factEnd": "2026-08-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "35756e25-24a9-570d-896f-ad87099cd3ce",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 154,
+   "number": "5683",
+   "name": "Портал. Настройка расчёта бонусов",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-09-15",
+   "planEnd": null,
+   "factStart": "2026-09-15",
+   "factEnd": "2026-09-16",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "86b49388-f380-533f-ae5c-3cf88024baf0",
+   "parentId": "03caf81e-54a2-575b-addb-83f29c6f6a56",
+   "level": "task",
+   "order": 155,
+   "number": "5690",
+   "name": "ERP. Доработка печатных форм",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-06-06",
+   "planEnd": null,
+   "factStart": "2026-06-06",
+   "factEnd": "2026-06-27",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "86c5466b-6b39-5b81-bfe7-28c29c67382f",
+   "parentId": "47ee8fc1-5705-578a-9e97-d39ff08fdd64",
+   "level": "project",
+   "order": 156,
+   "name": "ERP. Обновление заказов клиентов",
+   "planStart": "2026-01-22",
+   "planEnd": "2026-04-01",
+   "factStart": "2026-02-02",
+   "factEnd": null
+  },
+  {
+   "id": "e0d52c9f-14a1-56dc-a7f0-30b3cf888fa8",
+   "parentId": "86c5466b-6b39-5b81-bfe7-28c29c67382f",
+   "level": "task",
+   "order": 157,
+   "number": "5693",
+   "name": "TMS. Внедрение обмена с поставщиками",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-01-22",
+   "planEnd": null,
+   "factStart": "2026-01-22",
+   "factEnd": "2026-03-01",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "388b7ab5-90f7-5615-8f24-f935dc25698c",
+   "parentId": "86c5466b-6b39-5b81-bfe7-28c29c67382f",
+   "level": "task",
+   "order": 158,
+   "number": "5694",
+   "name": "Портал. Интеграция расчёта бонусов",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-01-11",
+   "planEnd": null,
+   "factStart": "2026-01-11",
+   "factEnd": "2026-02-05",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "cafe7ea4-dd1b-5eaa-828b-f95dcc50ceaa",
+   "parentId": "86c5466b-6b39-5b81-bfe7-28c29c67382f",
+   "level": "task",
+   "order": 159,
+   "number": "5698",
+   "name": "Бухгалтерия. Разработка ценообразования",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-01-04",
+   "planEnd": null,
+   "factStart": "2026-01-04",
+   "factEnd": "2026-01-06",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "3301bb28-43b5-5b75-be25-848dcae3a3f6",
+   "parentId": "86c5466b-6b39-5b81-bfe7-28c29c67382f",
+   "level": "task",
+   "order": 160,
+   "number": "5702",
+   "name": "Документооборот. Интеграция отчётов по продажам",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-03-14",
+   "planEnd": null,
+   "factStart": "2026-03-14",
+   "factEnd": "2026-04-18",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "c3c09987-0b1b-5b08-ac99-0388a31c1f3e",
+   "parentId": "86c5466b-6b39-5b81-bfe7-28c29c67382f",
+   "level": "task",
+   "order": 161,
+   "number": "5703",
+   "name": "TMS. Доработка обмена с сайтом",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-01-30",
+   "planEnd": null,
+   "factStart": "2026-01-30",
+   "factEnd": "2026-02-08",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "09591c1d-6534-5a79-9bdf-6709f6fe408e",
+   "parentId": "86c5466b-6b39-5b81-bfe7-28c29c67382f",
+   "level": "task",
+   "order": 162,
+   "number": "5704",
+   "name": "Портал. Доработка обмена с сайтом",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-03-17",
+   "planEnd": null,
+   "factStart": "2026-03-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "8c32f84b-e6bd-5334-aab0-5b3ff6151a22",
+   "parentId": null,
+   "level": "section",
+   "order": 163,
+   "number": "4",
+   "name": "Продажи и клиенты"
+  },
+  {
+   "id": "7a552046-2435-5578-8227-787755646f53",
+   "parentId": "8c32f84b-e6bd-5334-aab0-5b3ff6151a22",
+   "level": "project",
+   "order": 164,
+   "name": "TMS. Автоматизация учёта партий",
+   "planStart": "2026-06-28",
+   "planEnd": "2026-11-10",
+   "factStart": "2026-06-24",
+   "factEnd": null
+  },
+  {
+   "id": "8703fbff-e144-5a4c-b730-39a0cd329bff",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 165,
+   "number": "5711",
+   "name": "ЗУП. Доработка отчётов по продажам",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-07-13",
+   "planEnd": null,
+   "factStart": "2026-07-13",
+   "factEnd": "2026-07-29",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "803405ff-bd20-57f0-955c-1a1d46ea6912",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 166,
+   "number": "5719",
+   "name": "WMS. Доработка складских операций",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-07-06",
+   "planEnd": "2026-07-24",
+   "factStart": "2026-07-06",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "ca434b84-46c9-5ab2-bbe5-cdb50c759a6b",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 167,
+   "number": "5726",
+   "name": "WMS. Автоматизация закрытия месяца",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-06-17",
+   "planEnd": null,
+   "factStart": "2026-06-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "6461e972-5aa9-5332-a3e9-f38b2ea44e33",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 168,
+   "number": "5731",
+   "name": "WMS. Разработка электронного документооборота",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-07-04",
+   "planEnd": null,
+   "factStart": "2026-07-04",
+   "factEnd": "2026-07-29",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "cc562a04-4bb6-5277-b948-34bf3d2d460d",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 169,
+   "number": "5738",
+   "name": "Портал. Интеграция прав доступа",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-06-30",
+   "planEnd": null,
+   "factStart": "2026-06-30",
+   "factEnd": "2026-07-07",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "204ddf00-8ff7-537e-a3ac-bce147306bf4",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 170,
+   "number": "5746",
+   "name": "ERP. Доработка расчёта бонусов",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-06-28",
+   "planEnd": "2026-08-05",
+   "factStart": "2026-06-28",
+   "factEnd": "2026-08-08",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "710f7db2-9c6d-586a-bcb3-c951c7cc24c5",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 171,
+   "number": "5748",
+   "name": "Портал. Доработка прав доступа",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-08-11",
+   "planEnd": null,
+   "factStart": "2026-08-11",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "3cbe3c68-e086-5ab2-93e1-dbf3821a3e7b",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 172,
+   "number": "5752",
+   "name": "WMS. Исправление учёта транспортных затрат",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-08-01",
+   "planEnd": null,
+   "factStart": "2026-08-01",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "11f374b6-094c-5b88-bb91-ecb34e201824",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 173,
+   "number": "5758",
+   "name": "ERP. Внедрение отчётов по продажам",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "931ff75f-2a56-507f-a787-33313c28585d",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 174,
+   "number": "5761",
+   "name": "ЗУП. Разработка печатных форм",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-07-16",
+   "planEnd": "2026-08-12",
+   "factStart": "2026-07-16",
+   "factEnd": "2026-08-09",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "3cd36c78-fc5f-57e7-adba-03e77e8fbed2",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 175,
+   "number": "5768",
+   "name": "WMS. Обновление печатных форм",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-08-16",
+   "planEnd": null,
+   "factStart": "2026-08-16",
+   "factEnd": "2026-08-26",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "7d5c0394-33b6-5f95-981f-f213a64a8a6e",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 176,
+   "number": "5774",
+   "name": "Портал. Интеграция регламентных заданий",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-06-22",
+   "planEnd": null,
+   "factStart": "2026-06-22",
+   "factEnd": "2026-07-08",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "555ca904-3aea-5894-982a-7443b848cfcc",
+   "parentId": "7a552046-2435-5578-8227-787755646f53",
+   "level": "task",
+   "order": 177,
+   "number": "5781",
+   "name": "Портал. Разработка печатных форм",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-06-11",
+   "planEnd": null,
+   "factStart": "2026-06-11",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "7bc4b87d-e387-5fdb-914e-95d1a06dc5d6",
+   "parentId": "8c32f84b-e6bd-5334-aab0-5b3ff6151a22",
+   "level": "project",
+   "order": 178,
+   "name": "Бухгалтерия. Разработка маркировки товаров",
+   "planStart": "2026-09-03",
+   "planEnd": "2027-02-05",
+   "factStart": "2026-08-29",
+   "factEnd": null
+  },
+  {
+   "id": "55c31b66-05bd-571b-9179-99150b29e148",
+   "parentId": "7bc4b87d-e387-5fdb-914e-95d1a06dc5d6",
+   "level": "task",
+   "order": 179,
+   "number": "5782",
+   "name": "Портал. Настройка ценообразования",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-09-22",
+   "planEnd": null,
+   "factStart": "2026-09-22",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "79ca91bb-b654-5a7c-b887-3aa59ff33aae",
+   "parentId": "7bc4b87d-e387-5fdb-914e-95d1a06dc5d6",
+   "level": "task",
+   "order": 180,
+   "number": "5791",
+   "name": "Документооборот. Внедрение ценообразования",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-09-09",
+   "planEnd": null,
+   "factStart": "2026-09-09",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "5c0e59ab-6334-59c8-b6c0-cc51008c6783",
+   "parentId": "7bc4b87d-e387-5fdb-914e-95d1a06dc5d6",
+   "level": "task",
+   "order": 181,
+   "number": "5794",
+   "name": "Документооборот. Обновление обмена с поставщиками",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-09-18",
+   "planEnd": null,
+   "factStart": "2026-09-18",
+   "factEnd": "2026-09-23",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "b256b886-2d69-5502-b620-34b11d3cf1e9",
+   "parentId": "7bc4b87d-e387-5fdb-914e-95d1a06dc5d6",
+   "level": "task",
+   "order": 182,
+   "number": "5799",
+   "name": "Портал. Интеграция складских операций",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-08-31",
+   "planEnd": null,
+   "factStart": "2026-08-31",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "fb451980-cf76-5460-b5ca-b159139ef0e5",
+   "parentId": "7bc4b87d-e387-5fdb-914e-95d1a06dc5d6",
+   "level": "task",
+   "order": 183,
+   "number": "5803",
+   "name": "ERP. Настройка маркировки товаров",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-08-31",
+   "planEnd": null,
+   "factStart": "2026-08-31",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "parentId": "8c32f84b-e6bd-5334-aab0-5b3ff6151a22",
+   "level": "project",
+   "order": 184,
+   "name": "CRM. Настройка учёта партий",
+   "planStart": "2026-01-18",
+   "planEnd": "2026-04-17",
+   "factStart": null,
+   "factEnd": "2026-04-28"
+  },
+  {
+   "id": "b16830c5-7630-5b3a-8638-ea7b6e08608b",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 185,
+   "number": "5812",
+   "name": "Документооборот. Интеграция учёта партий",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-03-26",
+   "planEnd": null,
+   "factStart": "2026-03-26",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "8ab11354-bb1a-5665-9582-47e23669c3f1",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 186,
+   "number": "5813",
+   "name": "TMS. Автоматизация складских операций",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-03-17",
+   "planEnd": null,
+   "factStart": "2026-03-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "24dfeddf-3676-585f-8be9-f5e8069f5b08",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 187,
+   "number": "5814",
+   "name": "TMS. Исправление обмена с сайтом",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-01-27",
+   "planEnd": null,
+   "factStart": "2026-01-27",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "5b764f96-9d8d-54cd-a57e-0c9089e98f9b",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 188,
+   "number": "5817",
+   "name": "TMS. Интеграция учёта транспортных затрат",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-03-17",
+   "planEnd": null,
+   "factStart": "2026-03-17",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "b1e29969-0046-52ab-8a6c-2fdfc6cfe05b",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 189,
+   "number": "5820",
+   "name": "Документооборот. Настройка отчётов по продажам",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-03-03",
+   "planEnd": null,
+   "factStart": "2026-03-03",
+   "factEnd": "2026-04-12",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "ea7d36b8-c046-5bde-8786-29368cf66943",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 190,
+   "number": "5824",
+   "name": "ERP. Автоматизация печатных форм",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-02-14",
+   "planEnd": null,
+   "factStart": "2026-02-14",
+   "factEnd": "2026-03-09",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "45217769-88fc-589d-850f-ea8a8fa35e02",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 191,
+   "number": "5825",
+   "name": "ERP. Разработка обмена с поставщиками",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-04-11",
+   "planEnd": null,
+   "factStart": "2026-04-11",
+   "factEnd": "2026-05-01",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "13dd7368-951e-5000-bbad-67a54ed89cc7",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 192,
+   "number": "5828",
+   "name": "WMS. Автоматизация печатных форм",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-01-29",
+   "planEnd": "2026-03-10",
+   "factStart": "2026-01-29",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "cadf93fc-977f-52f7-b19c-5149afd6d641",
+   "parentId": "ccc7f49c-3647-5e95-8ad4-1132a0db6d45",
+   "level": "task",
+   "order": 193,
+   "number": "5833",
+   "name": "ERP. Интеграция регламентных заданий",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-01-27",
+   "planEnd": null,
+   "factStart": "2026-01-27",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "f943ec67-2807-5f25-a034-a37bf4aedf0f",
+   "parentId": "8c32f84b-e6bd-5334-aab0-5b3ff6151a22",
+   "level": "project",
+   "order": 194,
+   "name": "Документооборот. Автоматизация обмена с поставщиками",
+   "planStart": "2026-09-09",
+   "planEnd": "2027-03-18",
+   "factStart": "2026-09-15",
+   "factEnd": null
+  },
+  {
+   "id": "a5d17010-dc90-59e9-8eb8-ec55d8910ccc",
+   "parentId": "8c32f84b-e6bd-5334-aab0-5b3ff6151a22",
+   "level": "project",
+   "order": 195,
+   "name": "Бухгалтерия. Исправление печатных форм",
+   "planStart": "2026-06-26",
+   "planEnd": "2026-12-31",
+   "factStart": "2026-06-28",
+   "factEnd": null
+  },
+  {
+   "id": "58831f9a-90f3-5b72-8baa-e7b6a8519068",
+   "parentId": "a5d17010-dc90-59e9-8eb8-ec55d8910ccc",
+   "level": "task",
+   "order": 196,
+   "number": "5839",
+   "name": "Документооборот. Настройка учёта транспортных затрат",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-08-31",
+   "planEnd": "2026-09-17",
+   "factStart": "2026-08-31",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "9700e0fc-0219-5b1b-bb5d-95d3625f9c52",
+   "parentId": "a5d17010-dc90-59e9-8eb8-ec55d8910ccc",
+   "level": "task",
+   "order": 197,
+   "number": "5842",
+   "name": "Бухгалтерия. Исправление регламентных заданий",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-08-31",
+   "planEnd": null,
+   "factStart": "2026-08-31",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "48e4959e-3057-5a39-a6cc-f5960a74f904",
+   "parentId": "a5d17010-dc90-59e9-8eb8-ec55d8910ccc",
+   "level": "task",
+   "order": 198,
+   "number": "5843",
+   "name": "Бухгалтерия. Разработка маркировки товаров",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-08-25",
+   "planEnd": "2026-09-27",
+   "factStart": "2026-08-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "9154337c-6232-5c62-9763-de819a439208",
+   "parentId": "8c32f84b-e6bd-5334-aab0-5b3ff6151a22",
+   "level": "project",
+   "order": 199,
+   "name": "Бухгалтерия. Разработка сверки остатков",
+   "planStart": "2026-08-14",
+   "planEnd": "2026-09-29",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "37159be5-fd4f-5fb2-b0bf-d391d0867d77",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 200,
+   "number": "5844",
+   "name": "TMS. Исправление электронного документооборота",
+   "executors": [
+    "29650c39-70f4-595b-b801-9ad65621b6e3"
+   ],
+   "planStart": "2026-07-29",
+   "planEnd": "2026-08-11",
+   "factStart": "2026-07-29",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "da0190bd-7558-5c31-b69e-896da40bb717",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 201,
+   "number": "5848",
+   "name": "WMS. Обновление ценообразования",
+   "executors": [
+    "1f7cc1dc-f37b-5fe5-91de-3faaeb8d6bce"
+   ],
+   "planStart": "2026-09-06",
+   "planEnd": null,
+   "factStart": "2026-09-06",
+   "factEnd": "2026-09-13",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "db615123-35ea-5f09-a140-59dc8ef53462",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 202,
+   "number": "5853",
+   "name": "Бухгалтерия. Интеграция электронного документооборота",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-08-21",
+   "planEnd": null,
+   "factStart": "2026-08-21",
+   "factEnd": "2026-08-24",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "55a3b10e-794a-59a6-a6b4-43c670173468",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 203,
+   "number": "5856",
+   "name": "Портал. Автоматизация регламентных заданий",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-08-18",
+   "planEnd": "2026-08-31",
+   "factStart": "2026-08-18",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "6944d1ea-9e55-5c87-98a2-8da3a86c43c3",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 204,
+   "number": "5857",
+   "name": "Портал. Автоматизация заказов клиентов",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-08-10",
+   "planEnd": "2026-09-06",
+   "factStart": "2026-08-10",
+   "factEnd": "2026-08-26",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "4193b42d-f41e-5369-a5e5-9bdb88fb26e9",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 205,
+   "number": "5862",
+   "name": "Бухгалтерия. Доработка заказов клиентов",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-08-07",
+   "planEnd": null,
+   "factStart": "2026-08-07",
+   "factEnd": "2026-09-12",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "877f1908-7846-556b-948a-a4f7e2249738",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 206,
+   "number": "5869",
+   "name": "Портал. Настройка сверки остатков",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-08-22",
+   "planEnd": "2026-09-21",
+   "factStart": "2026-08-22",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "7ae91a61-a9dc-5b58-a2e4-9c27c3582b52",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 207,
+   "number": "5878",
+   "name": "TMS. Интеграция ценообразования",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-08",
+   "planEnd": null,
+   "factStart": "2026-09-08",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "3cec50dd-89f3-5b06-84bc-250dad7ad91c",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 208,
+   "number": "5887",
+   "name": "ЗУП. Исправление закрытия месяца",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-08-12",
+   "planEnd": null,
+   "factStart": "2026-08-12",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "45a92b09-4645-5e91-adb3-cbbad4ddaaef",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 209,
+   "number": "5896",
+   "name": "TMS. Обновление электронного документооборота",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-08-18",
+   "planEnd": "2026-08-27",
+   "factStart": "2026-08-18",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "48463330-feea-5a31-8fc3-c64f0705e242",
+   "parentId": "9154337c-6232-5c62-9763-de819a439208",
+   "level": "task",
+   "order": 210,
+   "number": "5897",
+   "name": "Бухгалтерия. Обновление складских операций",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-08-04",
+   "planEnd": "2026-08-14",
+   "factStart": "2026-08-04",
+   "factEnd": "2026-08-09",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "2efa3ec9-ef30-55ed-aaa1-49274a03d17d",
+   "parentId": "8c32f84b-e6bd-5334-aab0-5b3ff6151a22",
+   "level": "project",
+   "order": 211,
+   "name": "ERP. Автоматизация закрытия месяца",
+   "planStart": "2026-06-15",
+   "planEnd": "2026-12-01",
+   "factStart": "2026-06-10",
+   "factEnd": null
+  },
+  {
+   "id": "2a860e4e-99e1-58f0-8d60-5a36c7d91a82",
+   "parentId": "2efa3ec9-ef30-55ed-aaa1-49274a03d17d",
+   "level": "task",
+   "order": 212,
+   "number": "5899",
+   "name": "ЗУП. Разработка обмена с сайтом",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-07-16",
+   "planEnd": null,
+   "factStart": "2026-07-16",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "ae7bfed8-1efb-590d-8604-32aa668c3f79",
+   "parentId": "2efa3ec9-ef30-55ed-aaa1-49274a03d17d",
+   "level": "task",
+   "order": 213,
+   "number": "5904",
+   "name": "TMS. Интеграция электронного документооборота",
+   "executors": [
+    "e61b836f-de54-5997-a82a-a5158ed4683c"
+   ],
+   "planStart": "2026-07-22",
+   "planEnd": null,
+   "factStart": "2026-07-22",
+   "factEnd": "2026-08-14",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "1cc3db24-dee7-5f5d-b8cc-e3dc2861637f",
+   "parentId": null,
+   "level": "section",
+   "order": 214,
+   "number": "5",
+   "name": "Инфраструктура"
+  },
+  {
+   "id": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "parentId": "1cc3db24-dee7-5f5d-b8cc-e3dc2861637f",
+   "level": "project",
+   "order": 215,
+   "name": "Документооборот. Обновление сверки остатков",
+   "planStart": "2026-04-28",
+   "planEnd": "2026-06-12",
+   "factStart": "2026-05-07",
+   "factEnd": "2026-06-19"
+  },
+  {
+   "id": "4b17e26f-26c4-5523-808f-cf31b1da6bca",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 216,
+   "number": "5910",
+   "name": "CRM. Настройка расчёта бонусов",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-05-08",
+   "planEnd": null,
+   "factStart": "2026-05-08",
+   "factEnd": "2026-05-31",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "c22bbbf7-f9cf-5506-9057-2dd7b95e72be",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 217,
+   "number": "5919",
+   "name": "WMS. Обновление регламентных заданий",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-06-04",
+   "planEnd": null,
+   "factStart": "2026-06-04",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "3f67039a-b6af-5de0-9a9e-e8d567fe0afe",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 218,
+   "number": "5926",
+   "name": "Бухгалтерия. Исправление расчёта бонусов",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-05-30",
+   "planEnd": null,
+   "factStart": "2026-05-30",
+   "factEnd": "2026-06-17",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "e0a1d7a6-77c7-53b6-ad66-45edd777d6c3",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 219,
+   "number": "5933",
+   "name": "Бухгалтерия. Внедрение учёта партий",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-04-18",
+   "planEnd": "2026-05-24",
+   "factStart": "2026-04-18",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "cb07435c-7707-561e-ae7c-54942cbe6e1d",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 220,
+   "number": "5938",
+   "name": "ЗУП. Исправление печатных форм",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-04-28",
+   "planEnd": null,
+   "factStart": "2026-04-28",
+   "factEnd": "2026-06-05",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "9f19156b-9f11-560d-8dd2-ed03cb6f2a04",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 221,
+   "number": "5946",
+   "name": "TMS. Автоматизация учёта транспортных затрат",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-04-15",
+   "planEnd": null,
+   "factStart": "2026-04-15",
+   "factEnd": "2026-05-12",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "c34c8bb7-7067-566a-9c54-fe5b83f67c47",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 222,
+   "number": "5953",
+   "name": "ERP. Внедрение отчётов по продажам",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-05-05",
+   "planEnd": null,
+   "factStart": "2026-05-05",
+   "factEnd": "2026-05-22",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "b6fb259b-5550-5c8a-9567-9523bd8651ac",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 223,
+   "number": "5960",
+   "name": "Бухгалтерия. Интеграция печатных форм",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-04-27",
+   "planEnd": null,
+   "factStart": "2026-04-27",
+   "factEnd": "2026-05-14",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "c674c1f4-f9d4-5a8b-bc7b-bca9a628a4a7",
+   "parentId": "a8689d76-e578-532a-9aa2-f9458e62fa98",
+   "level": "task",
+   "order": 224,
+   "number": "5962",
+   "name": "TMS. Обновление складских операций",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-06-06",
+   "planEnd": "2026-06-23",
+   "factStart": "2026-06-06",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "parentId": "1cc3db24-dee7-5f5d-b8cc-e3dc2861637f",
+   "level": "project",
+   "order": 225,
+   "name": "CRM. Исправление прав доступа",
+   "planStart": "2026-08-03",
+   "planEnd": "2027-02-01",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "096db603-00d0-5ac3-a3d8-ac6d3b900c7a",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 226,
+   "number": "5971",
+   "name": "Бухгалтерия. Автоматизация печатных форм",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-08-08",
+   "planEnd": null,
+   "factStart": "2026-08-08",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "5b9108ed-87b7-528a-8a1b-3350ce7044d1",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 227,
+   "number": "5980",
+   "name": "Бухгалтерия. Обновление заказов клиентов",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-09-10",
+   "planEnd": "2026-09-28",
+   "factStart": "2026-09-10",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "7ba1da6e-f530-5b39-aeb3-e74a4a1a7d09",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 228,
+   "number": "5988",
+   "name": "ЗУП. Исправление сверки остатков",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2026-09-14",
+   "planEnd": "2026-09-30",
+   "factStart": "2026-09-14",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "f37cb4a8-2907-5fe2-aecb-00c47b883638",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 229,
+   "number": "5992",
+   "name": "Портал. Обновление обмена с поставщиками",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-07-25",
+   "planEnd": null,
+   "factStart": "2026-07-25",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "c36f9780-3fd1-56f0-a659-90c2e261dac0",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 230,
+   "number": "5997",
+   "name": "Бухгалтерия. Доработка учёта партий",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-07-21",
+   "planEnd": "2026-08-03",
+   "factStart": "2026-07-21",
+   "factEnd": "2026-08-14",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "a4704fd9-498c-5d4e-867e-549e58259890",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 231,
+   "number": "5998",
+   "name": "Документооборот. Разработка прав доступа",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-09-01",
+   "planEnd": null,
+   "factStart": "2026-09-01",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "b411c772-8e78-5537-9fd2-d4df5f0cba23",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 232,
+   "number": "6004",
+   "name": "ЗУП. Внедрение учёта партий",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-09-05",
+   "planEnd": null,
+   "factStart": "2026-09-05",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "8bcbbea4-e229-53b1-bbbc-fc2b7cccc3da",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 233,
+   "number": "6011",
+   "name": "ЗУП. Исправление печатных форм",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-08-24",
+   "planEnd": null,
+   "factStart": "2026-08-24",
+   "factEnd": "2026-09-10",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "841540ac-0fdb-571a-b237-54b5d139d8b3",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 234,
+   "number": "6012",
+   "name": "ЗУП. Исправление обмена с сайтом",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-07-20",
+   "planEnd": "2026-08-15",
+   "factStart": "2026-07-20",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "39afe393-2c61-5210-8ccd-474f609c4090",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 235,
+   "number": "6016",
+   "name": "ЗУП. Настройка регламентных заданий",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2026-09-11",
+   "planEnd": null,
+   "factStart": "2026-09-11",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "07c59327-731a-533b-aaa9-35cc0d742be4",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 236,
+   "number": "6024",
+   "name": "Бухгалтерия. Автоматизация ценообразования",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-09-04",
+   "planEnd": null,
+   "factStart": "2026-09-04",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "948ff2d6-a9d6-5284-be8b-8b7eed42968a",
+   "parentId": "bed0859d-328b-5b42-a26e-88ded7522c85",
+   "level": "task",
+   "order": 237,
+   "number": "6032",
+   "name": "ERP. Исправление учёта партий",
+   "executors": [
+    "b7a5c8ed-40f9-563e-a753-14f5800b8b8c"
+   ],
+   "planStart": "2026-08-30",
+   "planEnd": null,
+   "factStart": "2026-08-30",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "deefffcb-0951-5b67-8467-a6eabcc112e9",
+   "parentId": "1cc3db24-dee7-5f5d-b8cc-e3dc2861637f",
+   "level": "project",
+   "order": 238,
+   "name": "ЗУП. Автоматизация заказов клиентов",
+   "planStart": "2026-04-22",
+   "planEnd": "2026-07-28",
+   "factStart": "2026-04-29",
+   "factEnd": null
+  },
+  {
+   "id": "fc64186e-5f4a-51bb-b7e9-7ee8cb7c3e49",
+   "parentId": "deefffcb-0951-5b67-8467-a6eabcc112e9",
+   "level": "task",
+   "order": 239,
+   "number": "6037",
+   "name": "Документооборот. Разработка заказов клиентов",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-06-26",
+   "planEnd": null,
+   "factStart": "2026-06-26",
+   "factEnd": "2026-07-22",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "0767cf92-8e15-5fa2-8033-ca716be5cf1e",
+   "parentId": "deefffcb-0951-5b67-8467-a6eabcc112e9",
+   "level": "task",
+   "order": 240,
+   "number": "6043",
+   "name": "ЗУП. Внедрение сверки остатков",
+   "executors": [
+    "17c823ff-0b8c-5394-821c-ca0a1d43511d"
+   ],
+   "planStart": "2026-04-15",
+   "planEnd": null,
+   "factStart": "2026-04-15",
+   "factEnd": "2026-04-27",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "f1e6d296-d6bc-5795-a0a7-ef0ffa81d700",
+   "parentId": "1cc3db24-dee7-5f5d-b8cc-e3dc2861637f",
+   "level": "project",
+   "order": 241,
+   "name": "ЗУП. Внедрение заказов клиентов",
+   "planStart": "2026-10-27",
+   "planEnd": "2027-04-06",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "3dd93552-caf1-572c-9a20-f5a802aafef3",
+   "parentId": "f1e6d296-d6bc-5795-a0a7-ef0ffa81d700",
+   "level": "task",
+   "order": 242,
+   "number": "6047",
+   "name": "ERP. Интеграция обмена с сайтом",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "2d613b9b-75bc-57e5-9872-6d0f02325a78",
+   "parentId": "f1e6d296-d6bc-5795-a0a7-ef0ffa81d700",
+   "level": "task",
+   "order": 243,
+   "number": "6053",
+   "name": "ЗУП. Настройка ценообразования",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-09-25",
+   "planEnd": null,
+   "factStart": "2026-09-25",
+   "factEnd": "2026-09-25",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "e6f4a2a4-c0f9-5247-a38d-8123f05bd2ab",
+   "parentId": "1cc3db24-dee7-5f5d-b8cc-e3dc2861637f",
+   "level": "project",
+   "order": 244,
+   "name": "Бухгалтерия. Обновление маркировки товаров",
+   "planStart": "2026-08-08",
+   "planEnd": "2026-11-20",
+   "factStart": null,
+   "factEnd": null
+  },
+  {
+   "id": "fb86aa21-75f8-54e0-9bdb-b3c172780628",
+   "parentId": "e6f4a2a4-c0f9-5247-a38d-8123f05bd2ab",
+   "level": "task",
+   "order": 245,
+   "number": "6061",
+   "name": "CRM. Обновление регламентных заданий",
+   "executors": [
+    "cbab0757-d52b-5065-b049-6aafdeb4322c"
+   ],
+   "planStart": "2026-08-21",
+   "planEnd": null,
+   "factStart": "2026-08-21",
+   "factEnd": "2026-09-04",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "d8895901-3851-54fa-ab14-e0d1b1268c66",
+   "parentId": "e6f4a2a4-c0f9-5247-a38d-8123f05bd2ab",
+   "level": "task",
+   "order": 246,
+   "number": "6064",
+   "name": "Портал. Обновление заказов клиентов",
+   "executors": [
+    "82ada29d-0a92-5d2e-9c2b-38e067158098"
+   ],
+   "planStart": "2026-09-06",
+   "planEnd": "2026-09-26",
+   "factStart": "2026-09-06",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "00a2df24-413d-528d-9309-631281d3f7e2",
+   "parentId": "e6f4a2a4-c0f9-5247-a38d-8123f05bd2ab",
+   "level": "task",
+   "order": 247,
+   "number": "6070",
+   "name": "TMS. Внедрение печатных форм",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-07-21",
+   "planEnd": null,
+   "factStart": "2026-07-21",
+   "factEnd": null,
+   "status": "inProgress",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "47fa3710-10e6-53d6-977d-ef5fb3d081ed",
+   "parentId": null,
+   "level": "section",
+   "order": 248,
+   "number": null,
+   "name": "Архив проектов"
+  },
+  {
+   "id": "9973ad2e-0e45-5892-959b-1db2f94f0f6f",
+   "parentId": "47fa3710-10e6-53d6-977d-ef5fb3d081ed",
+   "level": "project",
+   "order": 249,
+   "name": "Бухгалтерия. Исправление учёта транспортных затрат",
+   "planStart": "2026-03-14",
+   "planEnd": "2026-07-23",
+   "factStart": null,
+   "factEnd": "2026-08-04"
+  },
+  {
+   "id": "2006c554-a352-5745-8a6e-699801975dfb",
+   "parentId": "9973ad2e-0e45-5892-959b-1db2f94f0f6f",
+   "level": "task",
+   "order": 250,
+   "number": "6079",
+   "name": "WMS. Исправление закрытия месяца",
+   "executors": [
+    "02e6519e-ac04-5bbc-8e29-f9bbc8336b0e"
+   ],
+   "planStart": "2026-06-27",
+   "planEnd": null,
+   "factStart": "2026-06-27",
+   "factEnd": "2026-07-11",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "74cf94ac-7628-5b1e-9de2-b69a208da578",
+   "parentId": "9973ad2e-0e45-5892-959b-1db2f94f0f6f",
+   "level": "task",
+   "order": 251,
+   "number": "6081",
+   "name": "CRM. Исправление обмена с поставщиками",
+   "executors": [
+    "9cca6da9-a542-5287-8d6d-9b31bd9c78fb"
+   ],
+   "planStart": "2026-07-18",
+   "planEnd": null,
+   "factStart": "2026-07-18",
+   "factEnd": "2026-08-07",
+   "status": "done",
+   "custom": {
+    "taskKind": "consultation"
+   }
+  },
+  {
+   "id": "069289c5-2413-5c4b-8d52-c2d82619718e",
+   "parentId": "9973ad2e-0e45-5892-959b-1db2f94f0f6f",
+   "level": "task",
+   "order": 252,
+   "number": "6084",
+   "name": "ERP. Автоматизация обмена с сайтом",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-04-15",
+   "planEnd": null,
+   "factStart": "2026-04-15",
+   "factEnd": "2026-05-27",
+   "status": "done",
+   "custom": {
+    "taskKind": "serviceRequest"
+   }
+  },
+  {
+   "id": "b99516b6-204b-58c9-b298-04e2c64f844c",
+   "parentId": "47fa3710-10e6-53d6-977d-ef5fb3d081ed",
+   "level": "project",
+   "order": 253,
+   "name": "Документооборот. Автоматизация закрытия месяца",
+   "planStart": "2026-04-08",
+   "planEnd": "2026-06-23",
+   "factStart": "2026-04-04",
+   "factEnd": "2026-07-03"
+  },
+  {
+   "id": "7c106a09-5abc-5ea9-882a-5dd6e4a7ee02",
+   "parentId": "b99516b6-204b-58c9-b298-04e2c64f844c",
+   "level": "task",
+   "order": 254,
+   "number": "6091",
+   "name": "Портал. Внедрение расчёта бонусов",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-06-15",
+   "planEnd": null,
+   "factStart": "2026-06-15",
+   "factEnd": "2026-07-18",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "1b0d2880-8be8-5080-a734-a5b415f08300",
+   "parentId": "b99516b6-204b-58c9-b298-04e2c64f844c",
+   "level": "task",
+   "order": 255,
+   "number": "6095",
+   "name": "Бухгалтерия. Автоматизация учёта транспортных затрат",
+   "executors": [
+    "5d36ebda-b53c-54c6-b5b3-be050da43db9"
+   ],
+   "planStart": "2026-06-05",
+   "planEnd": null,
+   "factStart": "2026-06-05",
+   "factEnd": "2026-07-20",
+   "status": "done",
+   "custom": {
+    "taskKind": "incident"
+   }
+  },
+  {
+   "id": "a5ea0f15-0206-5625-b769-bdfae180e113",
+   "parentId": "b99516b6-204b-58c9-b298-04e2c64f844c",
+   "level": "task",
+   "order": 256,
+   "number": "6103",
+   "name": "Портал. Настройка обмена с поставщиками",
+   "executors": [
+    "a9c1d244-4399-5dee-a7e4-3c87bfe443ad"
+   ],
+   "planStart": "2026-05-11",
+   "planEnd": null,
+   "factStart": "2026-05-11",
+   "factEnd": "2026-05-14",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "5757f63a-8531-5cea-98fe-05d5ce3d4afb",
+   "parentId": "b99516b6-204b-58c9-b298-04e2c64f844c",
+   "level": "task",
+   "order": 257,
+   "number": "6105",
+   "name": "ЗУП. Разработка обмена с поставщиками",
+   "executors": [
+    "02a8daea-87a6-5889-a53e-a76da12369b2"
+   ],
+   "planStart": "2026-05-23",
+   "planEnd": null,
+   "factStart": "2026-05-23",
+   "factEnd": "2026-06-08",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "75cdbcd0-e396-504b-a618-fc1ba2303b69",
+   "parentId": "47fa3710-10e6-53d6-977d-ef5fb3d081ed",
+   "level": "project",
+   "order": 258,
+   "name": "Документооборот. Доработка сверки остатков",
+   "planStart": "2025-10-27",
+   "planEnd": "2026-04-12",
+   "factStart": "2025-11-04",
+   "factEnd": "2026-04-16"
+  },
+  {
+   "id": "c23f4a4d-a006-528a-b07c-0e98bb274609",
+   "parentId": "75cdbcd0-e396-504b-a618-fc1ba2303b69",
+   "level": "task",
+   "order": 259,
+   "number": "6106",
+   "name": "Портал. Интеграция регламентных заданий",
+   "executors": [
+    "3c08a6c4-f389-5b73-a728-bebc6e9029a1"
+   ],
+   "planStart": "2025-10-11",
+   "planEnd": null,
+   "factStart": "2025-10-11",
+   "factEnd": "2025-10-23",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  },
+  {
+   "id": "480bafee-8de1-513d-b655-4ea6d1ea2bda",
+   "parentId": "75cdbcd0-e396-504b-a618-fc1ba2303b69",
+   "level": "task",
+   "order": 260,
+   "number": "6114",
+   "name": "ERP. Исправление отчётов по продажам",
+   "executors": [
+    "3c963fbc-0f0e-5d81-8fc8-c43a3f472f98"
+   ],
+   "planStart": "2025-10-29",
+   "planEnd": null,
+   "factStart": "2025-10-29",
+   "factEnd": "2025-11-10",
+   "status": "done",
+   "custom": {
+    "taskKind": "changeRequest"
+   }
+  }
+ ]
+}
