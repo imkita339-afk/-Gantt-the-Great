@@ -142,6 +142,16 @@ def test_release_notes_from_changelog(root):
     assert notes and "##" not in notes
 
 
+def test_readme_download_link(root):
+    """Ссылка «Скачать установщик» в начале README ведёт на установщик текущей версии."""
+    from gantt import UPDATE_SOURCE
+
+    repo = UPDATE_SOURCE.removeprefix("github:")
+    text = (root / "README.md").read_text(encoding="utf-8")
+    link = f"https://github.com/{repo}/releases/download/v{__version__}/GanttSetup-{__version__}.exe"
+    assert link in text.split("\n## ")[1], link
+
+
 def test_window_checks_updates(make_win, tmp_path):
     from gantt.ui import update as ui_update
     from gantt.ui.widgets import Toast
